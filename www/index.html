@@ -223,10 +223,9 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript"> 
 app.initialize();
- screen.orientation.onchange = function(){console.log(screen.orientation.type);
+ screen.orientation.onchange = function(){alert(screen.orientation.type);
 };  
-screen.orientation.lock('landscape-primary');		
-screen.orientation.lock('landscape');   
+
 var int_slider = setInterval(function(){ sss() }, 1500);
 function sss(){
  var sliderfd=document.getElementById('slider_flag').value;
@@ -245,7 +244,7 @@ function sss(){
  }}
  
  
-function ssmx(){
+function ssmx(){screen.orientation.lock('landscape');
  oval=document.getElementById("onemus").value;
  if(oval==1){
 var int_sfs = setInterval(function(){   
@@ -292,7 +291,7 @@ $("#owl6").on('changed.owl.carousel', function(event) {
 	 play(event.item.index);
 })	   
  ssmx();
-alert('sds');
+//alert('sds');
   }, 1500);
 }
 }; 
