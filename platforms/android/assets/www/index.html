@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" /> 
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+   		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/waves/waves.min.css" />
+		<link rel="stylesheet" href="css/wow/animate.css" />
+		<link rel="stylesheet" href="css/nativedroid2.css" />
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Hello World</title>
+</head>
+<body  ng- class="noselect" ng-app="App" id="CenterCTRL"  ng-controller="CenterCTRL" ng-cloak>
+   <input id="online" value="0" type="hidden">
+   <input  id="version" value="1" type="hidden">
+   <input id="slider_flag" value="0" type="hidden"> 
+   <input id="onemus" value="0" type="hidden">
+   <input id="download_flag" value="0" type="hidden">
+
+<div data-role="page" class="nd2-no-menu-swipe" id="one">
+					<!-- panel left -->
+<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
+<div  data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+    <a href="#leftpanel2" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+    <h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
+    <div ng-show="progrshow" class="progress"><div class="indeterminate"></div></div>
+</div>
+
+<div role="main" class="ui-content" data-inset="false" > 
+<div ng-show="startone">
+<img src="img/loading-animation2.gif" style="margin:0 auto; display:block">
+<h4 style="margin:0 auto; display:block; text-align:center;">لطفا تا بارگذاری کامل محتوا منتظر بمانید</h4>
+</div> 
+<div ng-show="loadshow">
+<div class="ow1 owl-carousel owl-theme">
+    <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/sdcard0/baan/pic/{{xcs.photo}}"></a></div>
+</div>
+<h6 class="nd2-title clr-purple">
+	 دسته بندی قصه ها  <i class="zmdi zmdi-star"></i>
+</h6>
+ <div class="row pad10">
+    <div class="col-xs-6" ng-repeat="xcm in cats">
+<div  class="nd2-card">
+
+<a href="#booky" ng-click="pbooks(xcm.id);">
+<div class="card-media" >
+	<img alt="namia" height="150px" src="file:///storage/sdcard0/baan/pic/{{xcm.photo}}">
+	<div class="card-title has-supporting-text">
+	<h5 class="card-subtitle">{{xcm.name}}</h5>
+</div>
+</div>
+</a>
+</div></div>
+ <div class="col-xs-12"  >
+<div  class="nd2-card">
+<a  ng-click="inappb('http://gheseban.ir/pack/'+uid, 3)">
+<div class="card-media" >
+	<img alt="namia" height="150px" src="img/account.jpg">
+</div>
+</a>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div data-role="page" id="booky" data-transition="fade" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+           <!--  <a ng-Click="page4()" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-download"></i></a>-->
+ 				<a href="#leftpanel" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
+                 <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
+			</div>
+ 			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
+    
+       <h6 class="nd2-title">
+قصه های  
+</h6>
+
+ <div class="row pad10">
+    <div class="col-xs-6" ng-repeat="xcd in bookm | filter:{ id_cat: catid }:true">
+<div  class="nd2-card">
+<a href="#showbook"  ng-click="tbooks(xcd.id);" >
+<div class="card-media" >
+	<img alt="namia" height="150px" src="file:///storage/sdcard0/baan/pic/{{xcd.photo}}">
+	<div class="card-title has-supporting-text">
+	<h5 class="card-subtitle">{{xcd.name}}</h5>
+	</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>         
+</div>
+ <div data-role="page" id="showbook" data-transition="fade" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+             
+ 				<a href="#leftpanel" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
+                 <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
+			</div>
+ 			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
+<h6 class="nd2-title">
+ قصه های 
+</h6>
+<div class="row pad10">
+<div class="col-xs-12" ng-repeat="event in bookt | filter:{ id : booktid }:true">
+<div  class="nd2-card">
+<div class="card-media" >
+<a onClick="ssmx()"  ng-click="showbook(booktid);">
+<img alt="namia" height="150px" src="file:///storage/sdcard0/baan/pic/{{event.photo}}"></a>
+<div class="card-title has-supporting-text">
+<h5 class="card-subtitle flarg clr-purple"> {{event.name}}</h5><hr/>
+ <h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i> تعداد صفحات: {{event.pages}}</h5>
+<h5 class="card-subtitle fmedium"><i class="zmdi zmdi-money zmd-2x"></i> قیمت: {{event.price}}</h5>
+<a ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a><br>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+ 
+  
+   </div>         
+</div> 
+
+<div data-role="page" id="fullslide" data-transition="fade" class="nd2-no-menu-swipe">
+ <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
+<div role="main" class="ui-content"   data-inset="false" >
+ <div id="owl6" class="owl-carousel"  >
+  <div class="owl-slide"  ng-repeat="eventu in events | filter: showfilter">
+ <img alt="gheseban" src="file:///storage/sdcard0/baan/pic/{{eventu.photo}}">
+  <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
+   </div> 
+ </div>
+ <div class="iconfl">
+ <div class="iconvas">
+ 	<a class="customPrevBtn"  ><i class="zmdi zmdi-skip-previous"></i></a>	
+     <a onclick="playpuse()" ><i id="playos" class="zmdi zmdi-play"></i></a>	
+ 	<a  class="customNextBtn" ><i class="zmdi zmdi-skip-next"></i></a>
+    <input id="playo" value="1" type="hidden">	
+      </div>
+ </div>
+ 
+<div  id="ow6x" style="display:none" >
+<div  class="owl-slide"   ng-repeat="eventu in events2 | filter: showfilter">
+ <img alt="gheseban" src="file:///storage/sdcard0/baan/pic/{{eventu.photo}}">  
+  <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
+</div>
+</div>
+ <audio id="song" nodownload  style="display:none" >
+<source id="bbmu2"  src="" type="audio/mpeg"></source>
+<source id="bbmu"  src="" type="audio/mpeg"></source>
+مررگر شما قادر به اجرا این فایل نیست
+</audio>
+   </div>         
+</div> 
+  <div data-role="page" id="profile" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left6.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+ 				<a href="#leftpanel6" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">پروفایل کاربری</h1>
+			</div>
+ 			<div role="main" class="ui-content about" data-inset="false"  >
+            <div ng-show="loginoff">
+            <div style="width:80%; margin:0 auto; display:block; padding:30px 0;">
+            <a ng-click="inappb('http://gheseban.ir/login/login/0/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">ورود به قصه بان</a>
+            <a ng-click="inappb('http://gheseban.ir/login/reg/0/'+uid,2)" class="ui-btn ui-btn-raised clr-warning">عضویت در قصه بان</a>
+            <hr/>
+            <p>جهت عضویت یا ورود به قصه بان اتصال گوشی شما به اینترنت باید برقرار باشد.</p>
+            </div>
+            </div>
+            <div ng-show="loginon">
+ <div style="width:70%; margin:0 auto; display:block; padding:50px 0;">
+ <a  class="ui-btn  ui-btn-fab ui-btn-raised clr-grey centers"><i class="zmdi zmdi-account zmd-4x black"></i></a>
+ <p class="center">{{fname}}</p>
+ <p class="center">کاربر ویژه: {{pro}}</p>
+ <a href="#" class="ui-btn ui-btn-raised clr-btn-purple">قصه های خریداری شده</a>
+ <a ng-click="exits()" class="ui-btn ui-btn-raised clr-primary">خروج</a>
+</div> </div>
+         
+</div>
+</div>
+  <div data-role="page" id="about" class="nd2-no-menu-swipe">
+			<nd2-include  data-src="pages/panel.left6.html"></nd2-include>
+			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+ 				<a href="#leftpanel6" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
+			</div>
+ 			<div role="main" class="ui-content about" data-inset="false"  >
+           <h3>درباره ما</h3>
+           <p>نامیا دانلود یک از محصولات شرکت گسترش وب نامیا می باشد که با همکاری مخابرات استان کرمانشاه در جهت ایجاد سرویس ارزش افزوده مرکز محتوا راه اندازی شده است. در این وب سایت کاربران سرویس ADSL  مخابرات استان کرمانشاه می توانند با خرید بسته های زمان دار به محتوا موجود در سایت نامیا دانلود و همچنین لینک های متصل به سرور های نامیا به صورت رایگان استفاده نمایند.</p>
+           <p> ایمیل: info@namiadownload.ir<br>تلفن: 08338235145<br>تلفن: 08338234495<br>
+           آدرس: کرمانشاه - سه راه 22 بهمن پارک علم و فناوری طبقه 4 واحد 422 </p>
+            </div>
+          
+</div>
+    	<script src="js/jquery.min.js"></script> 
+        <script src="js/fastclick.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angularjs.js"></script>	
+		<script src="js/angular-sanitize.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.mobile.min.js"></script>
+		<script src="css/waves/waves.min.js"></script>
+		<script src="css/wow/wow.min.js"></script>
+		<script src="js/nativedroid2.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+ 
+         <script type="text/javascript"> 
+	</script>
+      <script type="text/javascript" src="cordova.js"></script> 
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript"> 
+app.initialize();
+ screen.orientation.onchange = function(){console.log(screen.orientation.type);
+};  
+screen.orientation.lock('landscape-primary');		
+screen.orientation.lock('landscape');   
+var int_slider = setInterval(function(){ sss() }, 1500);
+function sss(){
+ var sliderfd=document.getElementById('slider_flag').value;
+ if(sliderfd==1){ clearInterval(int_slider);		   
+		$('.ow1').owlCarousel({
+    loop:true,
+	rtl:true,
+	autoplay:true,
+    autoplayTimeout:5000,
+    margin:0,
+    nav:false,
+	dots:false,
+     items:1,
+   
+})
+ }}
+ 
+ 
+function ssmx(){
+ oval=document.getElementById("onemus").value;
+ if(oval==1){
+var int_sfs = setInterval(function(){   
+ clearInterval(int_sfs);
+ var html=document.getElementById("ow6x").innerHTML;
+ //alert(html);
+ $('#owl6').trigger('replace.owl.carousel', html).trigger('refresh.owl.carousel');
+ 
+ var hight=document.documentElement.clientHeight;	   
+var container = document.getElementById("owl6");
+var imgs = container.getElementsByTagName("img"); 
+for (var i = 0; i < imgs.length; i++) {
+imgs[i].style.height=hight+'.px';
+    }
+  play(0);	
+$("#owl6").on('changed.owl.carousel', function(event) {
+   // alert(event.item.index);
+	 play(event.item.index);
+});	   
+ }, 1000);
+}else{
+document.getElementById("onemus").value=1;	
+var int_ghesm = setInterval(function(){   
+ clearInterval(int_ghesm);
+var hight=document.documentElement.clientHeight;	   
+var container = document.getElementById("owl6");
+var imgs = container.getElementsByTagName("img"); 
+for (var i = 0; i < imgs.length; i++) {
+imgs[i].style.height=hight+'.px';
+    }
+$("#owl6").owlCarousel({
+  navigation : true, 
+  slideSpeed : 300,
+  autoplay:false,
+  rtl:true,
+  paginationSpeed : 400,
+  pagination: false,
+  items:1,
+ });
+ $('#owl6').trigger('refresh.owl.carousel');
+ play(0);	
+$("#owl6").on('changed.owl.carousel', function(event) {
+   // alert(event.item.index);
+	 play(event.item.index);
+})	   
+ ssmx();
+alert('sds');
+  }, 1500);
+}
+}; 
+function playpuse(){
+pali=document.getElementById("playo").value;
+ 
+if(pali==1){ document.getElementById("song").pause();
+	document.getElementById("playos").classList.remove("zmdi-play");
+	document.getElementById("playos").classList.add("zmdi-pause");
+document.getElementById("playo").value=0;
+}else{ document.getElementById("song").play();
+	document.getElementById("playo").value=1; 
+	document.getElementById("playos").classList.remove("zmdi-pause");
+	document.getElementById("playos").classList.add("zmdi-play");
+	}
+}
+ 
+$('.customNextBtn').click(function() {
+    $("#owl6").trigger('next.owl.carousel');
+	$("#owl6").on('changed.owl.carousel', function(event) {
+   // alert(event.item.index);
+	 play(event.item.index);
+	 
+})	 
+})
+// Go to the previous item
+$('.customPrevBtn').click(function() {
+    $("#owl6").trigger('prev.owl.carousel', [300]);
+	$("#owl6").on('changed.owl.carousel', function(event) {
+   // alert(event.item.index);
+	 play(event.item.index);
+})	 
+})
+
+$('#song').on('ended', function() {
+$("#owl6").trigger('next.owl.carousel');
+$("#owl6").on('changed.owl.carousel', function(event) {
+   // alert(event.item.index);
+	 play(event.item.index);
+})	   
+
+});
+function  play(num){
+	ajj2=document.getElementById("music2"+num).value;
+	//ajj=document.getElementById("music"+num).value;	
+	 document.getElementById("bbmu2").setAttribute('src','file:///storage/sdcard0/baan/music/'+ajj2);
+	 //document.getElementById("bbmu").setAttribute('src',ajj);
+	 document.getElementById("song").load();
+	document.getElementById("song").play();
+	pali=document.getElementById("playo").value;
+ 
+if(pali==0){ 
+document.getElementById("playos").classList.remove("zmdi-pause");
+	document.getElementById("playos").classList.add("zmdi-play");
+}
+}
+
+    </script>
+</body>
+</html>
