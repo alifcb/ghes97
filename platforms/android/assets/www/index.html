@@ -222,13 +222,31 @@
     <script type="text/javascript"> 
 app.initialize();
 // set to either landscape
-screen.orientation.lock('landscape');
 
+setTimeout(function(){
+screen.orientation.lock('portrait-primary');	
+ }, 1000);
+ setTimeout(function(){
+screen.orientation.lock('portrait-secondary');	
+ }, 4000);
+ setTimeout(function(){
+screen.orientation.lock('landscape-primary');	
+ }, 6000);
+ setTimeout(function(){
+screen.orientation.lock('landscape-secondary');	
+ }, 8000);
+ setTimeout(function(){
+screen.orientation.lock('portrait');	
+ }, 10000);
+ setTimeout(function(){
+screen.orientation.lock('landscape');	
+ }, 12000);
+ 
 // allow user rotate
-screen.orientation.unlock();
+//screen.orientation.unlock();
 
 // access current orientation
-alert('Orientation is ' + screen.orientation.type);
+//alert('Orientation is ' + screen.orientation.type);
 var int_slider = setInterval(function(){ sss() }, 1500);
 function sss(){
  var sliderfd=document.getElementById('slider_flag').value;
