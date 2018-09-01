@@ -221,8 +221,14 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript"> 
 app.initialize();
- screen.orientation.onchange = function(){
-};  
+// set to either landscape
+screen.orientation.lock('landscape');
+
+// allow user rotate
+screen.orientation.unlock();
+
+// access current orientation
+alert('Orientation is ' + screen.orientation.type);
 var int_slider = setInterval(function(){ sss() }, 1500);
 function sss(){
  var sliderfd=document.getElementById('slider_flag').value;
@@ -241,7 +247,7 @@ function sss(){
  }}
  
  //alert(window.screen.width);
-function ssmx(){screen.orientation.lock('landscape-primary');
+function ssmx(){ 
  oval=document.getElementById("onemus").value;
  if(oval==1){
 var int_sfs = setInterval(function(){   
