@@ -216,17 +216,13 @@
 		<script src="css/wow/wow.min.js"></script>
 		<script src="js/nativedroid2.js"></script>
 		<script src="js/owl.carousel.min.js"></script>
- 
-         <script type="text/javascript"> 
-	</script>
+
       <script type="text/javascript" src="cordova.js"></script> 
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript"> 
 app.initialize();
- screen.orientation.onchange = function(){console.log(screen.orientation.type);
+ screen.orientation.onchange = function(){
 };  
-screen.orientation.lock('landscape-primary');		
-screen.orientation.lock('landscape');   
 var int_slider = setInterval(function(){ sss() }, 1500);
 function sss(){
  var sliderfd=document.getElementById('slider_flag').value;
@@ -244,21 +240,25 @@ function sss(){
 })
  }}
  
- 
-function ssmx(){
+ //alert(window.screen.width);
+function ssmx(){screen.orientation.lock('landscape-primary');
  oval=document.getElementById("onemus").value;
  if(oval==1){
 var int_sfs = setInterval(function(){   
  clearInterval(int_sfs);
  var html=document.getElementById("ow6x").innerHTML;
- //alert(html);
+ //
  $('#owl6').trigger('replace.owl.carousel', html).trigger('refresh.owl.carousel');
  
- var hight=document.documentElement.clientHeight;	   
+ var hights=document.documentElement.clientHeight;
+ var widthg=document.documentElement.clientWidth;	   
 var container = document.getElementById("owl6");
 var imgs = container.getElementsByTagName("img"); 
 for (var i = 0; i < imgs.length; i++) {
-imgs[i].style.height=hight+'.px';
+//imgs[i].style.transform='rotate(90deg)';
+imgs[i].style.height =hights+'px';
+ //imgs[i].style.width =hights+'px';
+
     }
   play(0);	
 $("#owl6").on('changed.owl.carousel', function(event) {
@@ -270,11 +270,15 @@ $("#owl6").on('changed.owl.carousel', function(event) {
 document.getElementById("onemus").value=1;	
 var int_ghesm = setInterval(function(){   
  clearInterval(int_ghesm);
-var hight=document.documentElement.clientHeight;	   
+ var hight=document.documentElement.clientHeight;
+ var widthg=document.documentElement.clientWidth;	   
 var container = document.getElementById("owl6");
 var imgs = container.getElementsByTagName("img"); 
 for (var i = 0; i < imgs.length; i++) {
-imgs[i].style.height=hight+'.px';
+//imgs[i].style.transform='rotate(90deg)';
+imgs[i].style.height =hight+'.px';
+// imgs[i].style.width =hight+'.px';
+
     }
 $("#owl6").owlCarousel({
   navigation : true, 
@@ -292,7 +296,7 @@ $("#owl6").on('changed.owl.carousel', function(event) {
 	 play(event.item.index);
 })	   
  ssmx();
-alert('sds');
+//alert('sds');
   }, 1500);
 }
 }; 
@@ -326,14 +330,12 @@ $('.customPrevBtn').click(function() {
 	 play(event.item.index);
 })	 
 })
-
 $('#song').on('ended', function() {
 $("#owl6").trigger('next.owl.carousel');
 $("#owl6").on('changed.owl.carousel', function(event) {
    // alert(event.item.index);
 	 play(event.item.index);
 })	   
-
 });
 function  play(num){
 	ajj2=document.getElementById("music2"+num).value;
@@ -349,7 +351,6 @@ document.getElementById("playos").classList.remove("zmdi-pause");
 	document.getElementById("playos").classList.add("zmdi-play");
 }
 }
-
     </script>
 </body>
 </html>

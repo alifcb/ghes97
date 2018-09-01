@@ -13,9 +13,6 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
-        "cordova-plugin-media-capture": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },

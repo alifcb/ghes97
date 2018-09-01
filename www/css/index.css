@@ -208,3 +208,11 @@ padding:10px 15px;}
 .centers{ margin:0 auto !important; display:block; color:#0E0D0D !important; width:80px; height:80px;}
 .black{color:#000000 !important;}
 .center{text-align:center !important;}
+#fullslide .ui-content img{
+	width:100% !important;
+}
+/*#fullslide .ui-content .owl-carousel{
+  -webkit-transform:  rotate(90deg);
+  -moz-transform:    rotate(90deg);
+  transform:         rotate(90deg);
+}*/
