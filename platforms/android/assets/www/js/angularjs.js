@@ -13,7 +13,7 @@ $scope.uid = device.uuid;
 
 window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
 function onSuccesfsl() {
-$http.get("file:///storage/sdcard0/baan/reg/"+uids+".json").then(function(response) {
+$http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(response) {
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	$scope.xflag=0;
 	//alert($scope.flag_pro);
@@ -298,6 +298,7 @@ $http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) 
 	 $scope.events = response.data.events; 
  });
  }
+ 
 angular.forEach($scope.factor, function(value, key) {
 		if(value.id_book==idds){$scope.xflag=2;}
  });  
@@ -345,7 +346,7 @@ $scope.download(urls,File_Name,'reg');
 setTimeout(function(){
 window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
 function onSuccesfsl() {
-$http.get("file:///storage/sdcard0/baan/reg/"+uids+".json").then(function(response) {
+$http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(response) {
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	$scope.xflag=0;
 	//alert($scope.flag_pro);
