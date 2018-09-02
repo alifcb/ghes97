@@ -20,9 +20,7 @@ $http.get("file:///storage/sdcard0/baan/reg/"+uids+".json").then(function(respon
 	if($scope.flag_pro==0){
 		$scope.fflag=1; 
 	$scope.factor = response.data.factor;
-	angular.forEach($scope.factor, function(value, key) {
-		if(value.id_book==idds){$scope.xflag=2;}
- });
+	
  }else{
 	$scope.xflag=2; 
  }
@@ -45,12 +43,18 @@ $scope.loadshow=true;
 	document.getElementById('slider_flag').value=1;
 	$scope.cats = response.data.cats;
 	$scope.books = response.data.books;
+	$scope.eventsx = response.data.events;
 	//var counts = Object.keys($scope.slider).length;
  
 });	
  var Onlins=document.getElementById('online').value;
 if(Onlins==1){
-	
+angular.forEach($scope.eventsx, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+});
+angular.forEach($scope.eventsx, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.photo,value.pic,'music'); 
+});	
 $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
  if($scope.genr==response.data.genrate[0]){}else{
 	$scope.start();		//alert($scope.genr);
@@ -221,16 +225,16 @@ $scope.cats = response.data.cats;
 angular.forEach($scope.cats, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 });	}, 2000);
-setTimeout(function(){
+setTimeout(function(){$scope.slider=$scope.sliderx;
 angular.forEach($scope.booksy, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 });	}, 6000);
-setTimeout(function(){$scope.slider=$scope.sliderx;
+setTimeout(function(){document.getElementById('slider_flag').value=1;
  angular.forEach($scope.events, function(value, key) {
 	todoServicez.dlfile(value.audio,value.music,0,'music');
 });}, 7000);
  setTimeout(function(){
- document.getElementById('slider_flag').value=1;
+ 
 angular.forEach($scope.events, function(value, key) {
 todoServicez.dlfile(value.photo,value.pic,0,'pic');
 });	}, 9000);
@@ -288,15 +292,15 @@ $.mobile.changePage( "#fullslide", { transition: "slideup"} );
 if(oval==1){	
 $http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
  $scope.events2 = response.data.events;
- 
 });
  }else{
   $http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
 	 $scope.events = response.data.events; 
-
  });
  }
-  
+angular.forEach($scope.factor, function(value, key) {
+		if(value.id_book==idds){$scope.xflag=2;}
+ });  
 $scope.bookid=idds;	
 };
  
@@ -338,6 +342,24 @@ $scope.loadStartCallBack = function() {
 var File_Name=$scope.uid+'.json';
 $scope.download(urls,File_Name,'reg');
 //alert(response);
+setTimeout(function(){
+window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
+function onSuccesfsl() {
+$http.get("file:///storage/sdcard0/baan/reg/"+uids+".json").then(function(response) {
+	$scope.flag_pro = response.data.reg[0].flag_pro;
+	$scope.xflag=0;
+	//alert($scope.flag_pro);
+	if($scope.flag_pro==0){
+		$scope.fflag=1; 
+	$scope.factor = response.data.factor;
+	
+ }else{
+	$scope.xflag=2; 
+ }
+ 
+});		
+}
+}, 1000);
 $scope.loginon=true;
 		  $scope.loginoff=false;
 	}

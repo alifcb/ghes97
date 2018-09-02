@@ -139,7 +139,7 @@
 <div role="main" class="ui-content"   data-inset="false" >
  <div id="owl6" class="owl-carousel"  >
   <div class="owl-slide"  ng-repeat="eventu in events | filter: showfilter">
- <img alt="gheseban" src="file:///storage/sdcard0/baan/pic/{{eventu.photo}}">
+ <img alt="gheseban"  src="file:///storage/sdcard0/baan/pic/{{eventu.photo}}">
   <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
    </div> 
  </div>
@@ -221,33 +221,8 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript"> 
 app.initialize();
-// set to either landscape
 
-setTimeout(function(){
-screen.orientation.lock('portrait-primary');	
- }, 1000);
- setTimeout(function(){
-screen.orientation.lock('portrait-secondary');	
- }, 4000);
- setTimeout(function(){
-screen.orientation.lock('landscape-primary');	
- }, 6000);
- setTimeout(function(){
-screen.orientation.lock('landscape-secondary');	
- }, 8000);
- setTimeout(function(){
-screen.orientation.lock('portrait');	
- }, 10000);
- setTimeout(function(){
-screen.orientation.lock('landscape');	
- }, 12000);
- 
-// allow user rotate
-//screen.orientation.unlock();
-
-// access current orientation
-//alert('Orientation is ' + screen.orientation.type);
-var int_slider = setInterval(function(){ sss() }, 1500);
+var int_slider = setInterval(function(){ sss() }, 1000);
 function sss(){
  var sliderfd=document.getElementById('slider_flag').value;
  if(sliderfd==1){ clearInterval(int_slider);		   
@@ -266,29 +241,44 @@ function sss(){
  
  //alert(window.screen.width);
 function ssmx(){ 
+ 
  oval=document.getElementById("onemus").value;
  if(oval==1){
 var int_sfs = setInterval(function(){   
- clearInterval(int_sfs);
+ clearInterval(int_sfs); 
  var html=document.getElementById("ow6x").innerHTML;
  //
- $('#owl6').trigger('replace.owl.carousel', html).trigger('refresh.owl.carousel');
- 
+ $('#owl6').trigger('replace.owl.carousel', html).trigger('refresh.owl.carousel');  
  var hights=document.documentElement.clientHeight;
  var widthg=document.documentElement.clientWidth;	   
 var container = document.getElementById("owl6");
 var imgs = container.getElementsByTagName("img"); 
 for (var i = 0; i < imgs.length; i++) {
 //imgs[i].style.transform='rotate(90deg)';
-imgs[i].style.height =hights+'px';
- //imgs[i].style.width =hights+'px';
+imgs[i].style.height =widthg+'px';
+ imgs[i].style.width =hights+'px';
 
     }
+ var ite = container.getElementsByClassName('owl-item');
+for (var u = 0; u < ite.length; u++) {
+  ite[u].style.height = hights+'px';
+ ite[u].style.width =  widthg+'px';
+}
+ var ite = container.getElementsByClassName('owl-slide');
+for (var u = 0; u < ite.length; u++) {
+ ite[u].style.width =  hights+'px';
+}
+ var ite = container.getElementsByClassName('owl-stage-outer');
+for (var u = 0; u < ite.length; u++) {
+ ite[u].style.width =  hights+'px';
+}
+	
   play(0);	
 $("#owl6").on('changed.owl.carousel', function(event) {
    // alert(event.item.index);
 	 play(event.item.index);
-});	   
+});	 
+
  }, 1000);
 }else{
 document.getElementById("onemus").value=1;	
@@ -300,10 +290,11 @@ var container = document.getElementById("owl6");
 var imgs = container.getElementsByTagName("img"); 
 for (var i = 0; i < imgs.length; i++) {
 //imgs[i].style.transform='rotate(90deg)';
-imgs[i].style.height =hight+'.px';
-// imgs[i].style.width =hight+'.px';
-
+imgs[i].style.height =widthg+'px';
+ imgs[i].style.width =hight+'px';
     }
+
+
 $("#owl6").owlCarousel({
   navigation : true, 
   slideSpeed : 300,
@@ -314,6 +305,8 @@ $("#owl6").owlCarousel({
   items:1,
  });
  $('#owl6').trigger('refresh.owl.carousel');
+
+ 
  play(0);	
 $("#owl6").on('changed.owl.carousel', function(event) {
    // alert(event.item.index);
