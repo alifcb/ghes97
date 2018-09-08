@@ -30,9 +30,9 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
-    <name>ghesban</name>
-    <description>Hello World sample application that responds to the deviceready event.</description>
-    <author email="support@phonegap.com" href="http://phonegap.com">PhoneGap Team</author>
+    <name>قصه بان</name>
+    <description>کتاب قصه صوتی کودکان قصه بان</description>
+    <author email="support@phonegap.com" href="http://namiaweb.ir">NamiaWeb Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

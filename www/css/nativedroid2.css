@@ -84,13 +84,14 @@ p { font-size: 12px; line-height: 1.5em; }
 .nd2-title { font-size: 20px; line-height: 1.2em; font-weight: 500; display: block; }
 .nd2-subhead { font-size: 16px; line-height: 1.2em; font-weight: 400; display: block; }
 
-blockquote {
+blockquote {text-align:right;
 	position: relative;
 	display: block;
 	background-color: #f6f6f6;
-	padding: 7px 28px;
+	padding: 4px 10px;
 	margin-bottom: 54px;
 	color: rgba(0, 0, 0, 0.87);
+	margin: 10px;
 }
 
 blockquote:after {
@@ -98,7 +99,7 @@ blockquote:after {
 	position: absolute;
 	width: 0px;
 	height: 0px;
-	left: 24px;
+	right: 24px;
 	bottom: -48px;
 	border-style: solid;
 	border-width: 48px 48px 0 0;
@@ -106,16 +107,17 @@ blockquote:after {
 }
 
 blockquote p {
-	font-family: Georgia, serif;
-	font-size: 26px;
+	text-align:right;
+	
+	font-size: 14px;
 	line-height: 1.4em;
 	font-style: italic;
 }
 
-blockquote footer {
+blockquote footer {text-align:right;
 	display: block;
-	margin: -1em 24px 1em 0px;
-	font-size: 14px;
+	margin: -1em 10px 1em 0px;
+	font-size: 12px;
 	color: #696969;
 }
 
@@ -904,6 +906,7 @@ html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
 	height: 16px;
 	background-color: #ffffff;
 	border-width: 2px;
+
 }
 
 .ui-radio .ui-btn.ui-radio-on:before {
@@ -942,13 +945,32 @@ html .ui-btn.ui-checkbox-on.ui-checkbox-on:after {
 	font-weight: 400;
 	color: #696969;
 	margin-bottom: 0px;
+	
 }
 
 
 .ui-mobile label {
 	cursor: pointer;
+	text-align:right;
 }
-
+.ui-btn {
+    font-size: 16px;
+    margin: .5em 0;
+    padding: 7px 9px;
+}
+.ui-mobile label, .ui-controlgroup-label, .ui-controlgroup-label legend {
+ 
+    text-align: right;
+}
+textarea.ui-input-text.ui-textinput-autogrow {
+ 
+    text-align: right;
+}
+blockquote p {
+  
+    font-size: 14px;
+    line-height: 1.4em; font-style:normal;
+}
 .ui-input-text input, .ui-input-search input,
 textarea.ui-input-text.ui-textinput-autogrow {
 	font-size: 14px;
@@ -1273,7 +1295,7 @@ html >body .ui-rangeslider .ui-rangeslider-sliders .ui-slider-track:first-child 
 .clr-bg-lime, .clr-accent-lime .nd2Tabs .nd2Tabs-active:after { background-color: #cddc39; }
 .clr-bg-red, .clr-accent-red .nd2Tabs .nd2Tabs-active:after { background-color: #F44336; }
 .clr-bg-pink, .clr-accent-pink .nd2Tabs .nd2Tabs-active:after { background-color: #E91E63; }
-.clr-bg-purple, .clr-accent-purple .nd2Tabs .nd2Tabs-active:after { background-color: #9C27B0; }
+.clr-bg-purple, .clr-accent-purple .nd2Tabs .nd2Tabs-active:after { background-color: #9C27B0 !important; }
 .clr-bg-deep-purple, .clr-accent-deep-purple .nd2Tabs .nd2Tabs-active:after { background-color: #673AB7; }
 .clr-bg-indigo, .clr-accent-indigo .nd2Tabs .nd2Tabs-active:after { background-color: #3F51B5; }
 .clr-bg-blue, .clr-accent-blue .nd2Tabs .nd2Tabs-active:after { background-color: #2196F3; }

@@ -221,3 +221,9 @@ padding:10px 15px;}
   transform:         rotate(90deg);
 
 }
+ 
+.ui-controlgroup-controls .ui-btn, .ui-controlgroup-controls .ui-checkbox, .ui-controlgroup-controls .ui-radio, .ui-controlgroup-controls .ui-select {
+    margin: 0 !important ;
+}
+.marb20{
+	margin-bottom:20px !important;}
