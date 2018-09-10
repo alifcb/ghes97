@@ -218,7 +218,7 @@ source : dsdf,
 /////////////////////////////////////////////////////////downloder
 $scope.download=function(urls,File_Name,type){
 	document.getElementById('download_flag').value=1;
-	if(File_Name=='.nomedia'){
+	if(File_Name=='.nomedia' || type=='json'){
 		todoServicez.dlfile(File_Name,urls,1,type);
 		document.getElementById('download_flag').value=0;
 	}else{
