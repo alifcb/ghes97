@@ -164,7 +164,7 @@ if(Onlins==1){
  nn= parseInt(nn)+1;
  var dssf=document.getElementById('download_flag').value;
  var d_num=document.getElementById('download_num').value;
- if(nn>=10){document.getElementById('download_flag').value=0;}
+ if(nn>=15){document.getElementById('download_flag').value=0;}
  if(dssf==0){ 
 todoServicez.list_dl().then(function(items)
 {document.getElementById('download_num').value=items.length;
@@ -175,7 +175,7 @@ $scope.startone=false;
 $scope.loadshow=true;
 	}else{
 		if(items.length!=d_num || nn>=20){ nn=0;
-	// alert(items[0].pic+' '+items[0].links+' '+items[0].type);
+	 alert(items[0].pic+' '+items[0].links+' '+items[0].type);
 	$scope.download(items[0].pic,items[0].links,items[0].type);
 	}}
 });

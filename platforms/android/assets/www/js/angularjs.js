@@ -175,7 +175,7 @@ $scope.startone=false;
 $scope.loadshow=true;
 	}else{
 		if(items.length!=d_num || nn>=20){ nn=0;
-	// alert(items[0].pic+' '+items[0].links+' '+items[0].type);
+	 alert(items[0].pic+' '+items[0].links+' '+items[0].type);
 	$scope.download(items[0].pic,items[0].links,items[0].type);
 	}}
 });
@@ -454,14 +454,15 @@ $scope.loadStartCallBack = function() {
 var File_Name=$scope.uid+'.json';
 $scope.download(urls,File_Name,'reg');
 //alert(response);
+    $scope.starshow=true;
+	$scope.commshow=true;
 setTimeout(function(){
 window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
 function onSuccesfsl() {
 $http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(response) {
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	document.getElementById('userid').value=response.data.reg[0].id;
-	$scope.starshow=true;
-	$scope.commshow=true;
+	
 	$scope.xflag=0;
 	//alert(response.data.reg[0].id);
 	if($scope.flag_pro==0){
