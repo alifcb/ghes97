@@ -36,7 +36,8 @@ var File_Name = "one.json";
   window.resolveLocalFileSystemURL(store + File_Name, onSuccesfs, onFaidl);
 function onSuccesfs() {
 	todoServicez.list_dl().then(function(items)
-{if(items.length<=3){
+{
+	if(items.length<=3){
 	var Onlins=document.getElementById('online').value;
 if(Onlins==1){
 $scope.startone=false;
@@ -58,22 +59,22 @@ $scope.loadshow=false;
 	$scope.books = response.data.books;
 	$scope.eventsx = response.data.events;
 	//var counts = Object.keys($scope.slider).length;
-// angular.forEach($scope.cats, function(value, key) {
-// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
-//});
-//angular.forEach($scope.slider, function(value, key) {
-// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
-//});	
-// angular.forEach($scope.books, function(value, key) {
-// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
-//});
-// 
-// angular.forEach($scope.eventsx, function(value, key) {
-// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
-//});
-//angular.forEach($scope.eventsx, function(value, key) {
-// 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
-//});	
+ angular.forEach($scope.cats, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+});
+angular.forEach($scope.slider, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+});	
+ angular.forEach($scope.books, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+});
+ 
+ angular.forEach($scope.eventsx, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+});
+angular.forEach($scope.eventsx, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
+});	
 });	
  var Onlins=document.getElementById('online').value;
 if(Onlins==1){
@@ -257,7 +258,7 @@ if(type=='json'){
 	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
 	$scope.sliderx = response.data.slider;
 	$scope.booksy = response.data.books;
-	$scope.events = response.data.events;
+	$scope.eventk = response.data.events;
 angular.forEach($scope.sliderx, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 });
@@ -275,11 +276,11 @@ angular.forEach($scope.booksy, function(value, key) {
 	todoServicez.addbook(value.id,value.name,value.photo,0,value.id_cat);
 });	}, 5000);
 setTimeout(function(){document.getElementById('slider_flag').value=1;
- angular.forEach($scope.events, function(value, key) {
+ angular.forEach($scope.eventk, function(value, key) {
 	todoServicez.dlfile(value.audio,value.music,0,'music');
 });}, 7000);
  setTimeout(function(){
-angular.forEach($scope.events, function(value, key) {
+angular.forEach($scope.eventk, function(value, key) {
 todoServicez.dlfile(value.photo,value.pic,0,'pic');
 });	}, 9000);
 });	}, 500);
