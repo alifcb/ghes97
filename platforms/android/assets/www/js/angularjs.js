@@ -175,7 +175,7 @@ $scope.startone=false;
 $scope.loadshow=true;
 	}else{
 		if(items.length!=d_num || nn>=20){ nn=0;
-	 alert(items[0].pic+' '+items[0].links+' '+items[0].type);
+	// alert(items[0].pic+' '+items[0].links+' '+items[0].type);
 	$scope.download(items[0].pic,items[0].links,items[0].type);
 	}}
 });
@@ -248,7 +248,6 @@ fileTransfer.onprogress = function(progressEvent) {//alert(urls);
 		if (progressEvent.lengthComputable) {
 			var perc=0;
 			perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-			
 			document.getElementById('bloader').innerHTML=perc+'%';
 			if(perc>=95){
 			document.getElementById('download_flag').value=0;
@@ -266,12 +265,12 @@ setTimeout(function(){
 
 $scope.cats = response.data.cats;
 angular.forEach($scope.cats, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic');
+ 	//$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic');
 	todoServicez.dlfile(value.photo,value.pic,0,'pic'); 
 });	}, 2000);
 setTimeout(function(){$scope.slider=$scope.sliderx;
 angular.forEach($scope.booksy, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+ 	//$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 	todoServicez.dlfile(value.photo,value.pic,0,'pic');	
 	todoServicez.addbook(value.id,value.name,value.photo,0,value.id_cat);
 });	}, 5000);
@@ -280,7 +279,6 @@ setTimeout(function(){document.getElementById('slider_flag').value=1;
 	todoServicez.dlfile(value.audio,value.music,0,'music');
 });}, 7000);
  setTimeout(function(){
- 
 angular.forEach($scope.events, function(value, key) {
 todoServicez.dlfile(value.photo,value.pic,0,'pic');
 });	}, 9000);
@@ -379,30 +377,30 @@ $.mobile.changePage( "#fullslide", { transition: "slideup"} );
 if(oval==1){	
 $http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
  $scope.events2 = response.data.events;
-  angular.forEach($scope.events2, function(value, key) {
-	  if(value.id_book==idds){
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
-	  }
-});
-angular.forEach($scope.events2, function(value, key) {
-	if(value.id_book==idds){
- 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
-	}
-});	
+//  angular.forEach($scope.events2, function(value, key) {
+//	  if(value.id_book==idds){
+// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+//	  }
+//});
+//angular.forEach($scope.events2, function(value, key) {
+//	if(value.id_book==idds){
+// 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
+//	}
+//});	
 });
  }else{
   $http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
 	 $scope.events = response.data.events; 
-	   angular.forEach($scope.events, function(value, key) {
-	  if(value.id_book==idds){
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
-	  }
-});
-angular.forEach($scope.events, function(value, key) {
-	if(value.id_book==idds){
- 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
-	}
-});	
+	 //  angular.forEach($scope.events, function(value, key) {
+//	  if(value.id_book==idds){
+// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+//	  }
+//});
+//angular.forEach($scope.events, function(value, key) {
+//	if(value.id_book==idds){
+// 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
+//	}
+//});	
  });
  }
  
