@@ -52,8 +52,7 @@ $scope.loadshow=false;
 	
 	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
 	$scope.genr =	response.data.genrate[0];
-	$scope.slider = response.data.slider;
-	document.getElementById('slider_flag').value=1;
+	
 	$scope.cats = response.data.cats;
 	$scope.books = response.data.books;
 	$scope.eventsx = response.data.events;
@@ -61,9 +60,7 @@ $scope.loadshow=false;
  angular.forEach($scope.cats, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 });
-angular.forEach($scope.slider, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
-});	
+
  angular.forEach($scope.books, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 });
@@ -79,8 +76,16 @@ angular.forEach($scope.eventsx, function(value, key) {
 if(Onlins==1){
 
 $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
- if($scope.genr==response.data.genrate[0]){}else{
-	$scope.start();		//alert($scope.genr);
+ if($scope.genr==response.data.genrate[0]){
+	 $scope.slider = response.data.slider;
+	document.getElementById('slider_flag').value=1;
+	angular.forEach($scope.slider, function(value, key) {
+ 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+});	
+	 }else{
+		 
+	$scope.start();
+	//	alert($scope.genr);
  }
 });
 }
@@ -131,9 +136,7 @@ if(Onlins==0){
 	new $.nd2Toast({ message :"اتصال شما به اینترنت برقرار نیست !!",ttl : 6000});
 return 0;
 }
-setTimeout(function(){
-location.reload(); 
-}, 11000);
+
 $scope.start();	
 }
 }, 2000);
@@ -260,6 +263,12 @@ fileTransfer.onprogress = function(progressEvent) {//alert(urls);
 			document.getElementById('download_flag').value=0;
 			todoServicez.dlfile(File_Name,urls,1,type);
 if(File_Name=='one.json'){
+	
+	setTimeout(function(){
+location.reload(); 
+}, 11000);
+$scope.startone=true;
+$scope.loadshow=false;
 			setTimeout(function(){
 	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
 	$scope.sliderx = response.data.slider;
@@ -276,12 +285,13 @@ angular.forEach($scope.cats, function(value, key) {
 	todoServicez.dlfile(value.photo,value.pic,0,'pic'); 
 });	}, 2000);
 setTimeout(function(){$scope.slider=$scope.sliderx;
+document.getElementById('slider_flag').value=1;
 angular.forEach($scope.booksy, function(value, key) {
  	//$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 	todoServicez.dlfile(value.photo,value.pic,0,'pic');	
 	todoServicez.addbook(value.id,value.name,value.photo,0,value.id_cat);
 });	}, 5000);
-setTimeout(function(){document.getElementById('slider_flag').value=1;
+setTimeout(function(){
  angular.forEach($scope.eventk, function(value, key) {
 	todoServicez.dlfile(value.audio,value.music,0,'music');
 });}, 7000);
