@@ -75,7 +75,7 @@ angular.forEach($scope.slider, function(value, key) {
 angular.forEach($scope.eventsx, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
 });	
-});	
+
  var Onlins=document.getElementById('online').value;
 if(Onlins==1){
 
@@ -84,6 +84,13 @@ $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
 	$scope.start();		//alert($scope.genr);
  }
 });
+}
+
+});	
+ var Onlins=document.getElementById('online').value;
+if(Onlins==1){
+
+ 
 ///////////////////////////
 window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsd, onFaidld);
 function onSuccesfsd() {
@@ -137,7 +144,7 @@ $scope.start = function() {
 var urls='http://gheseban.ir/upload/json/one.json';
 var File_Name='one.json';
 $scope.download(urls,File_Name,'json');
-
+//alert('jhgj');
  var urle='http://gheseban.ir/manage/.nomedia';
 var File_Namee='.nomedia';
 $scope.download(urle,File_Namee,'music');
@@ -253,7 +260,7 @@ fileTransfer.onprogress = function(progressEvent) {//alert(urls);
 			if(perc>=95){
 			document.getElementById('download_flag').value=0;
 			todoServicez.dlfile(File_Name,urls,1,type);
-if(type=='json'){
+if(File_Name=='one.json'){
 			setTimeout(function(){
 	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
 	$scope.sliderx = response.data.slider;
@@ -549,10 +556,10 @@ $scope.forms.message="";
 App.service('todoServicez', function($q) 
 {
 	this.dlfile = function(links,pic,fave,type) 
-    {//alert(idss+fave);
+    {//alert(pic+' '+fave);
 		var db = window.openDatabase("Database", "1.0", "Cordova Ghesbandl", 200000);
         db.transaction(function(tx) 
-        {tx.executeSql("SELECT id_file FROM downloads where links='"+links+"' and flag=0", [], function(tx, res) 
+        {tx.executeSql("SELECT id_file FROM downloads where links='"+links+"' ", [], function(tx, res) 
 	  { //alert(res.rows.length);
 	  if(res.rows.length==0 && fave==0){result=0;
 	  
@@ -560,10 +567,11 @@ return tx.executeSql("INSERT into downloads(flag,pic,links,type) values("+fave+"
 	  {
 		  return true;
 	  });
-}else{ return tx.executeSql("UPDATE `downloads` SET flag="+fave+" WHERE  links='"+links+"'" , [], function(tx, res) 
+}else{  if(fave==1){return tx.executeSql("UPDATE `downloads` SET flag="+fave+" WHERE  links='"+links+"'" , [], function(tx, res) 
+
 	  {
 		  return true;
-	  });}
+	  });}}
   });
   });
   return false;
