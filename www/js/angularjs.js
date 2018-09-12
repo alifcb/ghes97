@@ -21,7 +21,6 @@ $http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(
 	if($scope.flag_pro==0){
 		$scope.fflag=1; 
 	$scope.factor = response.data.factor;
-	
  }else{
 	$scope.xflag=2; 
  }
