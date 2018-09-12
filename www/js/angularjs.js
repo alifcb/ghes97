@@ -137,7 +137,7 @@ $scope.start = function() {
 var urls='http://gheseban.ir/upload/json/one.json';
 var File_Name='one.json';
 $scope.download(urls,File_Name,'json');
-
+alert('jhgj');
  var urle='http://gheseban.ir/manage/.nomedia';
 var File_Namee='.nomedia';
 $scope.download(urle,File_Namee,'music');
@@ -253,7 +253,7 @@ fileTransfer.onprogress = function(progressEvent) {//alert(urls);
 			if(perc>=95){
 			document.getElementById('download_flag').value=0;
 			todoServicez.dlfile(File_Name,urls,1,type);
-if(type=='json'){
+if(File_Name=='one.json'){
 			setTimeout(function(){
 	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
 	$scope.sliderx = response.data.slider;
@@ -549,7 +549,7 @@ $scope.forms.message="";
 App.service('todoServicez', function($q) 
 {
 	this.dlfile = function(links,pic,fave,type) 
-    {//alert(idss+fave);
+    {alert(pic+' '+fave);
 		var db = window.openDatabase("Database", "1.0", "Cordova Ghesbandl", 200000);
         db.transaction(function(tx) 
         {tx.executeSql("SELECT id_file FROM downloads where links='"+links+"' and flag=0", [], function(tx, res) 
