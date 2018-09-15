@@ -39,8 +39,8 @@ function onSuccesfs() {
 	if(items.length<=3){
 	var Onlins=document.getElementById('online').value;
 if(Onlins==1){
-$scope.startone=true;
-$scope.loadshow=false;		
+$scope.startone=false;
+$scope.loadshow=true;		
 }else{
 $scope.startone=false;
 $scope.loadshow=true;
