@@ -39,11 +39,11 @@ function onSuccesfs() {
 	if(items.length<=3){
 	var Onlins=document.getElementById('online').value;
 if(Onlins==1){
-$scope.startone=false;
-$scope.loadshow=true;	
-}else{
 $scope.startone=true;
-$scope.loadshow=false;	
+$scope.loadshow=false;		
+}else{
+$scope.startone=false;
+$scope.loadshow=true;
 }
 }else{
 $scope.startone=true;
