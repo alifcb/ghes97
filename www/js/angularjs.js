@@ -78,14 +78,14 @@ if(Onlins==1){
 $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
  if($scope.genr==response.data.genrate[0]){
 	 $scope.slider = response.data.slider;
-	document.getElementById('slider_flag').value=1;
+	document.getElementById('slider_flag').value=1;alert($scope.genr);
 	angular.forEach($scope.slider, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 });	
 	 }else{
 		 
 	$scope.start();
-	//	alert($scope.genr);
+	//	
  }
 });
 }
@@ -281,7 +281,7 @@ setTimeout(function(){
 
 $scope.cats = response.data.cats;
 angular.forEach($scope.cats, function(value, key) {
- 	//$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic');
+ 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic');
 	todoServicez.dlfile(value.photo,value.pic,0,'pic'); 
 });	}, 2000);
 setTimeout(function(){$scope.slider=$scope.sliderx;
