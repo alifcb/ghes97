@@ -78,7 +78,7 @@ if(Onlins==1){
 $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
  if($scope.genr==response.data.genrate[0]){
 	 $scope.slider = response.data.slider;
-	document.getElementById('slider_flag').value=1;alert($scope.genr);
+	document.getElementById('slider_flag').value=1;//alert($scope.genr);
 	angular.forEach($scope.slider, function(value, key) {
  	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
 });	
