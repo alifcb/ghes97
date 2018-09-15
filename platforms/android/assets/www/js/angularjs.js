@@ -88,6 +88,9 @@ $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
 	//	
  }
 });
+}else{
+ $scope.slider = response.data.slider;
+	document.getElementById('slider_flag').value=1;	
 }
 
 });	
