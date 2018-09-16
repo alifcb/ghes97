@@ -17,6 +17,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 		  FastClick.attach(body);
+		
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -25,6 +26,7 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
 document.addEventListener('deviceready', onDeviceBase, false);
 document.addEventListener("offline", onOffline, false);
 document.addEventListener("online", onOnline, false);
@@ -58,11 +60,13 @@ function successCB() {
 //var db = window.openDatabase("Database", "1.0", "Cordova borna", 200000);
 //db.transaction(flag_one, errorSE);
 //alert('iu');
+
 }
 function exitFromApp()
 {
  navigator.app.exitApp();
 }
+ 
 document.addEventListener("backbutton", function(e){
 	//alert($.mobile.activePage.attr('id'));
 	//var myVideo = document.getElementById("videon"); 

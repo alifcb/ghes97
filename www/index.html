@@ -42,7 +42,7 @@
 </div> 
 <div ng-show="loadshow">
 <div class="ow1 owl-carousel owl-theme">
-    <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/sdcard0/baan/pic/{{xcs.photo}}"></a></div>
+    <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/emulated/0/baan/pic/{{xcs.photo}}"></a></div>
 </div>
 <h6 class="nd2-title clr-purple">
 	 دسته بندی قصه ها  <i class="zmdi zmdi-star"></i>
@@ -53,7 +53,7 @@
 
 <a href="#booky" ng-click="pbooks(xcm.id);">
 <div class="card-media" >
-	<img alt="namia" height="150px" src="file:///storage/sdcard0/baan/pic/{{xcm.photo}}">
+	<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{xcm.photo}}">
 	<div class="card-title has-supporting-text">
 	<h5 class="card-subtitle">{{xcm.name}}</h5>
 </div>
@@ -92,7 +92,7 @@
 <div  class="nd2-card">
 <a href="#showbook"  ng-click="tbooks(xcd.id);" >
 <div class="card-media" >
-	<img alt="namia" height="150px" src="file:///storage/sdcard0/baan/pic/{{xcd.photo}}">
+	<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{xcd.photo}}">
 	<div class="card-title has-supporting-text">
 	<h5 class="card-subtitle">{{xcd.name}}</h5>
 	</div>
@@ -120,7 +120,7 @@
 <div  class="nd2-card">
 <div class="card-media" >
 <a onClick="ssmx()"  ng-click="showbook(booktid);">
-<img alt="namia" height="150px" src="file:///storage/sdcard0/baan/pic/{{event.photo}}"></a>
+<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{event.photo}}"></a>
 <div class="card-title has-supporting-text">
 <h5 class="card-subtitle flarg clr-purple"> {{event.name}}</h5><hr/>
  <h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i> تعداد صفحات: {{event.pages}}</h5>
@@ -180,7 +180,7 @@
 <div role="main" class="ui-content"   data-inset="false" >
  <div id="owl6" class="owl-carousel"  >
   <div class="owl-slide"  ng-repeat="eventu in events | filter: showfilter">
- <img alt="gheseban"  src="file:///storage/sdcard0/baan/pic/{{eventu.photo}}">
+ <img alt="gheseban"  src="file:///storage/emulated/0/baan/pic/{{eventu.photo}}">
   <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
    </div> 
  </div>
@@ -195,7 +195,7 @@
  
 <div  id="ow6x" style="display:none" >
 <div  class="owl-slide"   ng-repeat="eventu in events2 | filter: showfilter">
- <img alt="gheseban" src="file:///storage/sdcard0/baan/pic/{{eventu.photo}}">  
+ <img alt="gheseban" src="file:///storage/emulated/0/baan/pic/{{eventu.photo}}">  
   <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
 </div>
 </div>
@@ -252,7 +252,7 @@
 <div  class="nd2-card">
 <a href="#showbook"  ng-click="tbooks(xcv.idb);" >
 <div class="card-media" >
-	<img alt="namia" height="150px" src="file:///storage/sdcard0/baan/pic/{{xcv.pic}}">
+	<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{xcv.pic}}">
 	<div class="card-title has-supporting-text">
 	<h5 class="card-subtitle">{{xcv.name}}</h5>
 	</div>
@@ -435,7 +435,7 @@ $("#owl6").on('changed.owl.carousel', function(event) {
 function  play(num){
 	ajj2=document.getElementById("music2"+num).value;
 	//ajj=document.getElementById("music"+num).value;	
-	 document.getElementById("bbmu2").setAttribute('src','file:///storage/sdcard0/baan/music/'+ajj2);
+	 document.getElementById("bbmu2").setAttribute('src','file:///storage/emulated/0/baan/music/'+ajj2);
 	 //document.getElementById("bbmu").setAttribute('src',ajj);
 	 document.getElementById("song").load();
 	document.getElementById("song").play();

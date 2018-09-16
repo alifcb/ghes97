@@ -11,9 +11,9 @@ $scope.wopen = function(links) {
 setTimeout(function(){
 $scope.uid = device.uuid;
 
-window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
+window.resolveLocalFileSystemURL("file:///storage/emulated/0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
 function onSuccesfsl() {
-$http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(response) {
+$http.get("file:///storage/emulated/0/baan/reg/"+$scope.uid+".json").then(function(response) {
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	document.getElementById('userid').value=response.data.reg[0].id;
 	$scope.xflag=0;
@@ -30,7 +30,7 @@ $http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(
 function onFaidll() {$scope.fflag=1; $scope.xflag=0; }
 
 
-var store = "file:///storage/sdcard0/baan/json/";
+var store = "file:///storage/emulated/0/baan/json/";
 var File_Name = "one.json";
   window.resolveLocalFileSystemURL(store + File_Name, onSuccesfs, onFaidl);
 function onSuccesfs() {
@@ -50,7 +50,7 @@ $scope.startone=true;
 $scope.loadshow=false;	
 }});
 	
-	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
+	$http.get("file:///storage/emulated/0/baan/json/one.json").then(function(response) {
 	$scope.genr =	response.data.genrate[0];
 	
 	$scope.cats = response.data.cats;
@@ -58,18 +58,18 @@ $scope.loadshow=false;
 	$scope.eventsx = response.data.events;
 	//var counts = Object.keys($scope.slider).length;
  angular.forEach($scope.cats, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+ 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 });
 
  angular.forEach($scope.books, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+ 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 });
  
  angular.forEach($scope.eventsx, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+ 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 });
 angular.forEach($scope.eventsx, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
+ 	$scope.check_file('file:///storage/emulated/0/baan/music/',value.audio,value.music,'music'); 
 });	
 
  var Onlins=document.getElementById('online').value;
@@ -80,7 +80,7 @@ $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
 	 $scope.slider = response.data.slider;
 	document.getElementById('slider_flag').value=1;//alert($scope.genr);
 	angular.forEach($scope.slider, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+ 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 });	
 	 }else{
 		 
@@ -99,10 +99,10 @@ if(Onlins==1){
 
  
 ///////////////////////////
-window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsd, onFaidld);
+window.resolveLocalFileSystemURL("file:///storage/emulated/0/baan/reg/"+$scope.uid+".json", onSuccesfsd, onFaidld);
 function onSuccesfsd() {
 	$scope.loginon=true;
-	$http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(response) {
+	$http.get("file:///storage/emulated/0/baan/reg/"+$scope.uid+".json").then(function(response) {
 	$scope.fname = response.data.reg[0].fname;
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	document.getElementById('userid').value=response.data.reg[0].id;
@@ -118,7 +118,7 @@ $scope.loginoff=true;
 $http.get("http://gheseban.ir/manage/api.php?online="+$scope.uid).then(function(response) {
 // alert(response.data.reg[0].fname);
  if(response.data.reg[0].fname==0){
-	var path = "file:///storage/sdcard0/baan/reg/";
+	var path = "file:///storage/emulated/0/baan/reg/";
 	var filename=$scope.uid+".json";
 	$scope.deletefile(path,filename);
 }else{
@@ -201,10 +201,10 @@ $scope.loadshow=true;
 ///////////////////////////////////////////search 
  
 setTimeout(function(){
-	$scope.check_file('file:///storage/sdcard0/baan/json/','search.json','http://gheseban.ir/manage/search.json','json');
+	$scope.check_file('file:///storage/emulated/0/baan/json/','search.json','http://gheseban.ir/manage/search.json','json');
 }, 1500);
 setTimeout(function(){
-$http.get("file:///storage/sdcard0/baan/json/search.json").then(function(response) { 
+$http.get("file:///storage/emulated/0/baan/json/search.json").then(function(response) { 
 //  	$scope.progrshow=false;
 //	$scope.loadshow=true;
  var dsdf=response.data; 
@@ -237,13 +237,13 @@ $scope.download=function(urls,File_Name,type){
 	}else{
 todoServicez.dlfile(File_Name,urls,0,type);
 	}
-//alert('onOnlfine');	
 
 var fileTransfer = new FileTransfer();
+ 
 var uri = encodeURI(urls);
 fileTransfer.download(
 uri,
-"file:///storage/sdcard0/baan/"+type+"/"+File_Name,
+"file:///storage/emulated/0/baan/"+type+"/"+File_Name,
 function(entt) {
 },
 function(error) {
@@ -273,24 +273,24 @@ location.reload();
 $scope.startone=true;
 $scope.loadshow=false;
 			setTimeout(function(){
-	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
+	$http.get("file:///storage/emulated/0/baan/json/one.json").then(function(response) {
 	$scope.sliderx = response.data.slider;
 	$scope.booksy = response.data.books;
 	$scope.eventk = response.data.events;
 angular.forEach($scope.sliderx, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+ 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 });
 setTimeout(function(){	
 
 $scope.cats = response.data.cats;
 angular.forEach($scope.cats, function(value, key) {
- 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic');
+ 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic');
 	todoServicez.dlfile(value.photo,value.pic,0,'pic'); 
 });	}, 2000);
 setTimeout(function(){$scope.slider=$scope.sliderx;
 document.getElementById('slider_flag').value=1;
 angular.forEach($scope.booksy, function(value, key) {
- 	//$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+ 	//$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 	todoServicez.dlfile(value.photo,value.pic,0,'pic');	
 	todoServicez.addbook(value.id,value.name,value.photo,0,value.id_cat);
 });	}, 5000);
@@ -306,7 +306,7 @@ todoServicez.dlfile(value.photo,value.pic,0,'pic');
 			}
 if(type=='reg'){
 		setTimeout(function(){
-	$http.get("file:///storage/sdcard0/baan/reg/"+File_Name).then(function(response) {
+	$http.get("file:///storage/emulated/0/baan/reg/"+File_Name).then(function(response) {
 	$scope.fname = response.data.reg[0].fname;
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	if($scope.flag_pro==1){$scope.pro="فعال";}else{$scope.pro="غیر فعال";}
@@ -325,7 +325,7 @@ if(type=='reg'){
 $scope.pbooks = function(ides) {
 	$scope.progrshow2=true;
 	$scope.loadshow2=false;
-	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
+	$http.get("file:///storage/emulated/0/baan/json/one.json").then(function(response) {
 	$scope.bookm = response.data.books;
 	$scope.progrshow2=false;
 	$scope.loadshow2=true;
@@ -354,7 +354,7 @@ if(Onlins==1){
 	$scope.comment = response.data.comment;
 		});
 		}
-	$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
+	$http.get("file:///storage/emulated/0/baan/json/one.json").then(function(response) {
 	$scope.bookt = response.data.books;
 todoServicez.iffav(ides).then(function(items)
 { //alert(items[0].fav);
@@ -395,30 +395,30 @@ $scope.showbook = function(idds) {
  	var uids=device.uuid;
 $.mobile.changePage( "#fullslide", { transition: "slideup"} );
 if(oval==1){	
-$http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
+$http.get("file:///storage/emulated/0/baan/json/one.json").then(function(response) {
  $scope.events2 = response.data.events;
 //  angular.forEach($scope.events2, function(value, key) {
 //	  if(value.id_book==idds){
-// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+// 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 //	  }
 //});
 //angular.forEach($scope.events2, function(value, key) {
 //	if(value.id_book==idds){
-// 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
+// 	$scope.check_file('file:///storage/emulated/0/baan/music/',value.audio,value.music,'music'); 
 //	}
 //});	
 });
  }else{
-  $http.get("file:///storage/sdcard0/baan/json/one.json").then(function(response) {
+  $http.get("file:///storage/emulated/0/baan/json/one.json").then(function(response) {
 	 $scope.events = response.data.events; 
 	 //  angular.forEach($scope.events, function(value, key) {
 //	  if(value.id_book==idds){
-// 	$scope.check_file('file:///storage/sdcard0/baan/pic/',value.photo,value.pic,'pic'); 
+// 	$scope.check_file('file:///storage/emulated/0/baan/pic/',value.photo,value.pic,'pic'); 
 //	  }
 //});
 //angular.forEach($scope.events, function(value, key) {
 //	if(value.id_book==idds){
-// 	$scope.check_file('file:///storage/sdcard0/baan/music/',value.audio,value.music,'music'); 
+// 	$scope.check_file('file:///storage/emulated/0/baan/music/',value.audio,value.music,'music'); 
 //	}
 //});	
  });
@@ -438,7 +438,7 @@ $scope.showfilter = function(eventu){
 ///////////////////////////////////////////////exit user
 $scope.exits = function(){  
 $scope.uid = device.uuid;
-var path = "file:///storage/sdcard0/baan/reg/";
+var path = "file:///storage/emulated/0/baan/reg/";
 var filename=$scope.uid+".json";
 $scope.deletefile(path,filename);
  $http.get("http://gheseban.ir/manage/api.php?exit="+$scope.uid).then(function(response) {
@@ -475,9 +475,9 @@ $scope.download(urls,File_Name,'reg');
     $scope.starshow=true;
 	$scope.commshow=true;
 setTimeout(function(){
-window.resolveLocalFileSystemURL("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
+window.resolveLocalFileSystemURL("file:///storage/emulated/0/baan/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
 function onSuccesfsl() {
-$http.get("file:///storage/sdcard0/baan/reg/"+$scope.uid+".json").then(function(response) {
+$http.get("file:///storage/emulated/0/baan/reg/"+$scope.uid+".json").then(function(response) {
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	document.getElementById('userid').value=response.data.reg[0].id;
 	
