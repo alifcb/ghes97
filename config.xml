@@ -18,7 +18,11 @@
   <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
   <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>
-  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/> 
+  <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/res/screen/android/screen-xhdpi-portrait.png" />
   <platform name="android">
     <icon src="www/res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="www/res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
@@ -26,12 +30,6 @@
     <icon src="www/res/icon/android/drawable-xhdpi-icon.png" density="xhdpi"/>
     <icon src="www/res/icon/android/drawable-xxhdpi-icon.png" density="xxhdpi"/>
     <icon src="www/res/icon/android/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
-    <splash src="www/res/screen/android/drawable-port-ldpi-screen.png" density="port-ldpi"/>
-    <splash src="www/res/screen/android/drawable-port-mdpi-screen.png" density="port-mdpi"/>
-    <splash src="www/res/screen/android/drawable-port-hdpi-screen.png" density="port-hdpi"/>
-    <splash src="www/res/screen/android/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
-    <splash src="www/res/screen/android/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
-    <splash src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   <access origin="*"/>
   <allow-intent href="http://*/*"/>
