@@ -335,6 +335,7 @@ $scope.catid=ides;
 };
 
 $scope.tbooks = function(ides) {
+	$scope.showpay=true;
 	$scope.progrshow2=true;
 	$scope.loadshow2=false;
 	$scope.booktid=ides;
@@ -347,7 +348,7 @@ if(Onlins==1){
 	$scope.starshow=true;
 	$scope.commshow=true;	
 	}else{
- 	$scope.starshow=false;
+ 	$scope.starshow=true;//false*
 	$scope.commshow=false;
 	}
 	 $http.get("http://gheseban.ir/manage/api.php?comment").then(function(response) {
@@ -371,6 +372,9 @@ $scope.efaver=items[0].fav;
 	$scope.loadshow2=true;
 });	
  
+};
+$scope.showprice = function(priceff){  //alert(priceff);
+    if(priceff==0){$scope.showpay=false;}
 };
 /////////////////////////////////////////////// star rating
 $scope.star = function(num,pageid) {
@@ -446,7 +450,7 @@ $scope.deletefile(path,filename);
 		  document.getElementById('userid').value='0';
 		  $scope.loginon=false;
 		  $scope.loginoff=true;
-		  $scope.starshow=false;
+		  $scope.starshow=true;//false*
 		  $scope.commshow=false;
 	  }
 

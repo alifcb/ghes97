@@ -1302,8 +1302,8 @@ html >body .ui-rangeslider .ui-rangeslider-sliders .ui-slider-track:first-child 
 .clr-bg-light-blue, .clr-accent-light-blue .nd2Tabs .nd2Tabs-active:after { background-color: #03A9F4; }
 .clr-bg-cyan, .clr-accent-cyan .nd2Tabs .nd2Tabs-active:after { background-color: #00BCD4; }
 .clr-bg-teal, .clr-accent-teal .nd2Tabs .nd2Tabs-active:after { background-color: #009688; }
-.clr-bg-green, .clr-accent-green .nd2Tabs .nd2Tabs-active:after { background-color: #4CAF50; }
-.clr-bg-light-green, .clr-accent-light-green .nd2Tabs .nd2Tabs-active:after { background-color: #8BC34A; }
+.clr-bg-green, .clr-accent-green .nd2Tabs .nd2Tabs-active:after { background-color: #4CAF50 !important;  }
+.clr-bg-light-green, .clr-accent-light-green .nd2Tabs .nd2Tabs-active:after { background-color: #8BC34A !important; }
 .clr-bg-yellow, .clr-accent-yellow .nd2Tabs .nd2Tabs-active:after { background-color: #FFEB3B; }
 .clr-bg-amber, .clr-accent-amber .nd2Tabs .nd2Tabs-active:after { background-color: #FFC107; }
 .clr-bg-orange, .clr-accent-orange .nd2Tabs .nd2Tabs-active:after { background-color: #FF9800; }
@@ -1314,24 +1314,24 @@ html >body .ui-rangeslider .ui-rangeslider-sliders .ui-slider-track:first-child 
 .clr-bg-white, .clr-accent-white .nd2Tabs .nd2Tabs-active:after { background-color: #FFFFFF; }
 
 .clr-lime { color: #cddc39 !important; }
-.clr-red { color: #F44336; }
-.clr-pink { color: #E91E63; }
+.clr-red { color: #F44336 !important ; }
+.clr-pink { color: #E91E63 !important ; }
 .clr-purple { color: #9C27B0 !important; }
 .clr-deep-purple { color: #673AB7; }
 .clr-indigo { color: #3F51B5; }
-.clr-blue { color: #2196F3; }
-.clr-light-blue { color: #03A9F4; }
+.clr-blue { color: #2196F3 !important ; }
+.clr-light-blue { color: #03A9F4 !important ; }
 .clr-cyan { color: #00BCD4 !important ; }
 .clr-teal { color: #009688; }
-.clr-green { color: #4CAF50; }
+.clr-green { color: #4CAF50 !important ; }
 .clr-light-green { color: #8BC34A !important; }
 .clr-yellow { color: #FFEB3B; }
 .clr-amber { color: #FFC107; }
 .clr-orange { color: #FF9800; }
 .clr-deep-orange { color: #FF5722; }
 .clr-brown { color: #795548; }
-.clr-grey { color: #9E9E9E; }
-.clr-blue-grey { color: #607D8B; }
+.clr-grey { color: #9E9E9E !important ; }
+.clr-blue-grey { color: #607D8B !important ; }
 .clr-white { color: #FFFFFF !important; }
 
 .ui-btn.clr-btn-accent-lime,.ui-btn.clr-btn-accent-lime:hover { color: #cddc39; }

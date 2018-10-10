@@ -4,6 +4,7 @@
   <author href="http://namiaweb.ir" email="support@phonegap.com">NamiaWeb Team</author>
   <content src="index.html"/>
   <preference name="DisallowOverscroll" value="true"/>
+  <preference name="Orientation" value="portrait" />
   <preference name="permissions" value="none" />
     <preference name="fullscreen" value="false" />
     <preference name="auto-hide-splash-screen" value="true" />

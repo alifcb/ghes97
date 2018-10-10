@@ -28,7 +28,7 @@
 <div data-role="page" class="nd2-no-menu-swipe" id="one">
 <nd2-include  data-src="pages/panel.left.html"></nd2-include>
 <div  data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-    <a href="#leftpanel" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+    <a href="#leftpanel1" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
     <h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
     <div ng-show="progrshow" class="progress"><div class="indeterminate"></div></div>
 </div>
@@ -76,7 +76,7 @@
 <div data-role="page" id="booky" data-transition="fade" class="nd2-no-menu-swipe">
 			<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-          <!--   <a ng-click="faver(efaver,carid)"  class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-favorite"></i></a>-->
+             <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
  				<a href="#leftpanel2" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
                  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
@@ -84,21 +84,22 @@
  			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
     
        <h6 class="nd2-title">
-قصه های  
+قصه های قصه بان 
 </h6>
 
  <div class="row pad10">
     <div class="col-xs-6" ng-repeat="xcd in bookm | filter:{ id_cat: catid }:true">
-<div  class="nd2-card">
+<div  class="nd2-card gerd">
 <a href="#showbook"  ng-click="tbooks(xcd.id);" >
 <div class="card-media" >
 	<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{xcd.photo}}">
 	<div class="card-title has-supporting-text">
-	<h5 class="card-subtitle">{{xcd.name}}</h5>
+	
 	</div>
 </div>
 </a>
 </div>
+<h5 class="card-subtitle center">{{xcd.name}}</h5>
 </div>
 </div>
 </div>         
@@ -112,7 +113,7 @@
                  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
 			</div>
  			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
-<h6 class="nd2-title">
+<h6 class="nd2-title none">
  قصه های 
 </h6>
 <div class="row pad10">
@@ -120,12 +121,13 @@
 <div  class="nd2-card">
 <div class="card-media" >
 <a onClick="ssmx()"  ng-click="showbook(booktid);">
-<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{event.photo}}"></a>
+<img alt="namia" height="250px" src="file:///storage/emulated/0/baan/pic/{{event.photo}}"></a>
 <div class="card-title has-supporting-text">
 <h5 class="card-subtitle flarg clr-purple"> {{event.name}}</h5><hr/>
  <h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i> تعداد صفحات: {{event.pages}}</h5>
-<h5 class="card-subtitle fmedium"><i class="zmdi zmdi-money zmd-2x"></i> قیمت: {{event.price}}</h5>
-<a ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a><br>
+<h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت: {{event.price}} تومان</h5>
+<a onClick="ssmx()"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
+<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a><br/>
 
 </div>
 </div>
@@ -187,7 +189,7 @@
  <div class="iconfl">
  <div class="iconvas">
  	<a class="customPrevBtn"  ><i class="zmdi zmdi-skip-previous"></i></a>	
-     <a onclick="playpuse()" ><i id="playos" class="zmdi zmdi-play"></i></a>	
+     <a onclick="playpuse()" ><i id="playos" class="zmdi zmdi-pause"></i></a>	
  	<a  class="customNextBtn" ><i class="zmdi zmdi-skip-next"></i></a>
     <input id="playo" value="1" type="hidden">	
       </div>
@@ -209,6 +211,7 @@
   <div data-role="page" id="profile" class="nd2-no-menu-swipe">
 			<nd2-include  data-src="pages/panel.left4.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+             <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
  				<a href="#leftpanel4" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">پروفایل کاربری</h1>
 			</div>
@@ -236,7 +239,7 @@
 <div data-role="page" id="favert" data-transition="fade" class="nd2-no-menu-swipe">
 			<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-          <!--   <a ng-click="faver(efaver,carid)"  class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-favorite"></i></a>-->
+           <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
  				<a href="#leftpanel2" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
                  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
@@ -268,6 +271,7 @@
   <div data-role="page" id="about" class="nd2-no-menu-swipe">
 			<nd2-include  data-src="pages/panel.left5.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+             <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
  				<a href="#leftpanel5" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
 			</div>
@@ -399,13 +403,13 @@ function playpuse(){
 pali=document.getElementById("playo").value;
  
 if(pali==1){ document.getElementById("song").pause();
-	document.getElementById("playos").classList.remove("zmdi-play");
-	document.getElementById("playos").classList.add("zmdi-pause");
+	document.getElementById("playos").classList.remove("zmdi-pause");
+	document.getElementById("playos").classList.add("zmdi-play");
 document.getElementById("playo").value=0;
 }else{ document.getElementById("song").play();
 	document.getElementById("playo").value=1; 
-	document.getElementById("playos").classList.remove("zmdi-pause");
-	document.getElementById("playos").classList.add("zmdi-play");
+	document.getElementById("playos").classList.remove("zmdi-play");
+	document.getElementById("playos").classList.add("zmdi-pause");
 	}
 }
  
@@ -442,8 +446,8 @@ function  play(num){
 	pali=document.getElementById("playo").value;
  
 if(pali==0){ 
-document.getElementById("playos").classList.remove("zmdi-pause");
-	document.getElementById("playos").classList.add("zmdi-play");
+document.getElementById("playos").classList.remove("zmdi-play");
+	document.getElementById("playos").classList.add("zmdi-pause");
 }
 }
     </script>
