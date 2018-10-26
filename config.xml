@@ -4,6 +4,7 @@
     <description>کتاب قصه صوتی کودکان قصه بان</description>
     <author email="support@phonegap.com" href="http://namiaweb.ir">NamiaWeb Team</author>
     <content src="index.html" />
+    <preference name="orientation" value="portrait" />
     <preference name="permissions" value="none" />
     <preference name="fullscreen" value="false" />
     <preference name="auto-hide-splash-screen" value="true" />

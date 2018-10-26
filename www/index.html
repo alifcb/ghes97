@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World</title>
 </head>
-<body  ng- class="noselect" ng-app="App" id="CenterCTRL"  ng-controller="CenterCTRL" ng-cloak>
+<body   class="noselect" ng-app="App" id="CenterCTRL"  ng-controller="CenterCTRL" ng-cloak>
    <input id="online" value="1" type="hidden">
    <input  id="version" value="1" type="hidden">
    <input id="slider_flag" value="0" type="hidden"> 
@@ -40,9 +40,9 @@
 <p style="margin:0 auto; display:block; text-align:center;">تعداد محتوا باقی مانده: <span id="exnum"></span></p>
 <p style="display:none" id="bloader"></p>
 </div> 
-<div ng-show="loadshow">
+
 <div class="ow1 owl-carousel owl-theme">
-    <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/emulated/0/baan/pic/{{xcs.photo}}"></a></div>
+    <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcs.photo}}"></a></div>
 </div>
 <h6 class="nd2-title clr-purple">
 	 دسته بندی قصه ها  <i class="zmdi zmdi-star"></i>
@@ -53,14 +53,14 @@
 
 <a href="#booky" ng-click="pbooks(xcm.id);">
 <div class="card-media" >
-	<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{xcm.photo}}">
+	<img alt="namia" height="150px" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcm.photo}}">
 	<div class="card-title has-supporting-text">
 	<h5 class="card-subtitle">{{xcm.name}}</h5>
 </div>
 </div>
 </a>
 </div></div>
- <div class="col-xs-12"  >
+ <div class="col-xs-12">
 <div  class="nd2-card">
 <a  ng-click="inappb('http://gheseban.ir/pack/'+uid, 3)">
 <div class="card-media" >
@@ -70,7 +70,7 @@
 </div>
 
 </div>
-</div></div>
+</div>
 </div>
 </div>
 <div data-role="page" id="booky" data-transition="fade" class="nd2-no-menu-swipe">
@@ -82,7 +82,7 @@
                  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
 			</div>
  			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
-    
+   <div ng-show="loadshow"> 
        <h6 class="nd2-title">
 قصه های قصه بان 
 </h6>
@@ -92,7 +92,7 @@
 <div  class="nd2-card gerd">
 <a href="#showbook"  ng-click="tbooks(xcd.id);" >
 <div class="card-media" >
-	<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{xcd.photo}}">
+	<img alt="namia" height="150px" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcd.photo}}">
 	<div class="card-title has-supporting-text">
 	
 	</div>
@@ -100,6 +100,7 @@
 </a>
 </div>
 <h5 class="card-subtitle center">{{xcd.name}}</h5>
+</div>
 </div>
 </div>
 </div>         
@@ -121,20 +122,20 @@
 <div  class="nd2-card">
 <div class="card-media" >
 <a onClick="ssmx()"  ng-click="showbook(booktid);">
-<img alt="namia" height="250px" src="file:///storage/emulated/0/baan/pic/{{event.photo}}"></a>
+<img alt="namia" height="250px" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{event.photo}}"></a>
 <div class="card-title has-supporting-text">
-<h5 class="card-subtitle flarg clr-purple"> {{event.name}}</h5><hr/>
- <h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i> تعداد صفحات: {{event.pages}}</h5>
-<h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت: {{event.price}} تومان</h5>
+<h5 class="card-subtitle flarg clr-purple">{{event.name}}</h5><hr/>
+<h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i>تعداد صفحات: {{event.pages}}</h5>
+<h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت قصه آنلاین: {{event.price}} تومان</h5>
+<h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت کتاب چاپی: {{event.priceb}} تومان</h5>
 <a onClick="ssmx()"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
 <a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a><br/>
-
+<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">سفارش کتاب</a><br/>
 </div>
 </div>
 
 </div> </div>
 
- 
 <div  ng-show="starshow" class="nd2-card" style="width:100%"><div class="card-title has-supporting-text">
  <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
   <legend>امتیاز دهی به این قصه</legend>
@@ -182,7 +183,7 @@
 <div role="main" class="ui-content"   data-inset="false" >
  <div id="owl6" class="owl-carousel"  >
   <div class="owl-slide"  ng-repeat="eventu in events | filter: showfilter">
- <img alt="gheseban"  src="file:///storage/emulated/0/baan/pic/{{eventu.photo}}">
+ <img alt="gheseban"  src="file:///storage/emulated/0/Android/com.baan.no/pic/{{eventu.photo}}">
   <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
    </div> 
  </div>
@@ -197,7 +198,7 @@
  
 <div  id="ow6x" style="display:none" >
 <div  class="owl-slide"   ng-repeat="eventu in events2 | filter: showfilter">
- <img alt="gheseban" src="file:///storage/emulated/0/baan/pic/{{eventu.photo}}">  
+ <img alt="gheseban" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{eventu.photo}}">  
   <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
 </div>
 </div>
@@ -255,7 +256,7 @@
 <div  class="nd2-card">
 <a href="#showbook"  ng-click="tbooks(xcv.idb);" >
 <div class="card-media" >
-	<img alt="namia" height="150px" src="file:///storage/emulated/0/baan/pic/{{xcv.pic}}">
+	<img alt="namia" height="150px" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcv.pic}}">
 	<div class="card-title has-supporting-text">
 	<h5 class="card-subtitle">{{xcv.name}}</h5>
 	</div>
@@ -306,8 +307,6 @@ function sss(){
  if(sliderfd==1){ clearInterval(int_slider);		   
 		$('.ow1').owlCarousel({
     loop:true,
-	animateOut: 'fadeOutDown',
-    animateIn: 'fadeInDown',
 	rtl:true,
 	autoplay:true,
     autoplayTimeout:5000,
@@ -439,7 +438,7 @@ $("#owl6").on('changed.owl.carousel', function(event) {
 function  play(num){
 	ajj2=document.getElementById("music2"+num).value;
 	//ajj=document.getElementById("music"+num).value;	
-	 document.getElementById("bbmu2").setAttribute('src','file:///storage/emulated/0/baan/music/'+ajj2);
+	 document.getElementById("bbmu2").setAttribute('src','file:///storage/emulated/0/Android/com.baan.no/music/'+ajj2);
 	 //document.getElementById("bbmu").setAttribute('src',ajj);
 	 document.getElementById("song").load();
 	document.getElementById("song").play();
