@@ -34,12 +34,6 @@
 </div>
 
 <div role="main" class="ui-content" data-inset="false" > 
-<div ng-show="startone">
-<img src="img/loading-animation2.gif" style="margin:0 auto; display:block">
-<h4 style="margin:0 auto; display:block; text-align:center;">لطفا تا بارگذاری کامل محتوا منتظر بمانید</h4><br>
-<p style="margin:0 auto; display:block; text-align:center;">تعداد محتوا باقی مانده: <span id="exnum"></span></p>
-<p style="display:none" id="bloader"></p>
-</div> 
 
 <div class="ow1 owl-carousel owl-theme">
     <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcs.photo}}"></a></div>
@@ -81,8 +75,9 @@
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
                  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
 			</div>
- 			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
-   <div ng-show="loadshow"> 
+
+             <div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
+              
        <h6 class="nd2-title">
 قصه های قصه بان 
 </h6>
@@ -103,8 +98,9 @@
 </div>
 </div>
 </div>
+ 
 </div>         
-</div>
+<!--////----------------------->
  <div data-role="page" id="showbook" data-transition="fade" class="nd2-no-menu-swipe">
 			<nd2-include  data-src="pages/panel.left3.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
@@ -113,7 +109,15 @@
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
                  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
 			</div>
- 			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
+ 			<div role="main" class="ui-content"  data-inset="false">
+  <div ng-show="startone">
+<img src="img/loading-animation2.gif" style="margin:0 auto; display:block">
+<h4 style="margin:0 auto; display:block; text-align:center;">لطفا تا بارگذاری کامل محتوا منتظر بمانید</h4><br>
+<p style="margin:0 auto; display:block; text-align:center;">تعداد محتوا باقی مانده: <span id="exnum"></span></p>
+<p style="display:none" id="bloader"></p>
+</div>  
+<div ng-show="loadshow">            			
+
 <h6 class="nd2-title none">
  قصه های 
 </h6>
@@ -129,8 +133,8 @@
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت قصه آنلاین: {{event.price}} تومان</h5>
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت کتاب چاپی: {{event.priceb}} تومان</h5>
 <a onClick="ssmx()"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
-<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a><br/>
-<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">سفارش کتاب</a><br/>
+<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a>
+<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">سفارش کتاب چاپی</a><br/>
 </div>
 </div>
 
@@ -170,12 +174,10 @@
 	
 </blockquote></div></div>
 </div>
-
 </div>
 </div>
- 
-  
-   </div>         
+</div>
+</div>       
 
 
 <div data-role="page" id="fullslide" data-transition="fade" class="nd2-no-menu-swipe">

@@ -34,6 +34,7 @@ var store = "file:///storage/emulated/0/Android/com.baan.no/json/";
 var File_Name = "one.json";
   window.resolveLocalFileSystemURL(store + File_Name, onSuccesfs, onFaidl);
 function onSuccesfs() {
+	$scope.progrshow=false;
 	todoServicez.list_dl().then(function(items)
 {
 	if(items.length<=3){
@@ -83,7 +84,7 @@ $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
  	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic'); 
 });	
 	 }else{
-		 
+	$scope.progrshow=true;
 	$scope.start();
 	//	
  }
@@ -139,7 +140,7 @@ if(Onlins==0){
 	new $.nd2Toast({ message :"اتصال شما به اینترنت برقرار نیست !!",ttl : 6000});
 return 0;
 }
-
+$scope.progrshow=true;
 $scope.start();	
 }
 }, 2000);
@@ -205,7 +206,7 @@ setTimeout(function(){
 }, 1500);
 setTimeout(function(){
 $http.get("file:///storage/emulated/0/Android/com.baan.no/json/search.json").then(function(response) { 
-//  	$scope.progrshow=false;
+//  $scope.progrshow=false;
 //	$scope.loadshow=true;
  var dsdf=response.data; 
 new $.nd2Search({
