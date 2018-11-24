@@ -25,9 +25,6 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
@@ -56,6 +53,9 @@
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-vibration": {

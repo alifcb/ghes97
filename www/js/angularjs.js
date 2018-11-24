@@ -137,9 +137,11 @@ function onFaidl() {
 	$scope.loadshow=false;
  var Onlins=document.getElementById('online').value;
 if(Onlins==0){
+	$scope.internets=true;
 	new $.nd2Toast({ message :"اتصال شما به اینترنت برقرار نیست !!",ttl : 6000});
 return 0;
 }
+$scope.internets=false;
 $scope.progrshow=true;
 $scope.start();	
 }
@@ -263,7 +265,7 @@ fileTransfer.onprogress = function(progressEvent) {//alert(urls);
 			var perc=0;
 			perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
 			document.getElementById('bloader').innerHTML=perc+'%';
-			if(perc>=95){
+			if(perc>=98){
 			document.getElementById('download_flag').value=0;
 			todoServicez.dlfile(File_Name,urls,1,type);
 if(File_Name=='one.json'){
@@ -391,6 +393,9 @@ $scope.star = function(num,pageid) {
  
 
    });
+};
+$scope.reloads = function() {
+location.reload(); 
 };
 ////////////////////////////////////////////// show slide book
 $scope.showbook = function(idds) {
@@ -678,5 +683,5 @@ return tx.executeSql("UPDATE ghese SET fav="+fave+" where idb="+idss , [], funct
 this.list_dl2 = function(count,list) 
     {//alert(idss+fave);
 	// alert(count);
-	 }
+	}
     });

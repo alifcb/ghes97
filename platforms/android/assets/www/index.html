@@ -34,7 +34,7 @@
 </div>
 
 <div role="main" class="ui-content" data-inset="false" > 
-
+ <div ng-show="internets" class="progress"><a class="center" ng-click="reloads()">تلاش مجدد</a><i class="zmdi zmdi-refresh"></i></div>
 <div class="ow1 owl-carousel owl-theme">
     <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcs.photo}}"></a></div>
 </div>
@@ -183,12 +183,13 @@
 <div data-role="page" id="fullslide" data-transition="fade" class="nd2-no-menu-swipe">
  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
 <div role="main" class="ui-content"   data-inset="false" >
+<div class="wrap" id="owee">
  <div id="owl6" class="owl-carousel"  >
   <div class="owl-slide"  ng-repeat="eventu in events | filter: showfilter">
  <img alt="gheseban"  src="file:///storage/emulated/0/Android/com.baan.no/pic/{{eventu.photo}}">
   <input id="music2{{$index}}" type="hidden" value="{{eventu.audio}}"> 
    </div> 
- </div>
+ </div></div>
  <div class="iconfl">
  <div class="iconvas">
  	<a class="customPrevBtn"  ><i class="zmdi zmdi-skip-previous"></i></a>	
@@ -253,7 +254,7 @@
 قصه های  
 </h6>
 
- <div class="row pad10">
+<div class="row pad10">
     <div class="col-xs-6" ng-repeat="xcv in myfaver ">
 <div  class="nd2-card">
 <a href="#showbook"  ng-click="tbooks(xcv.idb);" >
@@ -297,12 +298,13 @@
 		<script src="css/wow/wow.min.js"></script>
 		<script src="js/nativedroid2.js"></script>
 		<script src="js/owl.carousel.min.js"></script>
-
+        <script type="text/javascript" src="js/owl.js"></script>
       <script type="text/javascript" src="cordova.js"></script> 
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript"> 
 app.initialize();
-
+ var ceight=document.documentElement.clientHeight;
+ document.getElementById("owee").style.height =ceight+'px';
 var int_slider = setInterval(function(){ sss() }, 1000);
 function sss(){
  var sliderfd=document.getElementById('slider_flag').value;
@@ -311,7 +313,7 @@ function sss(){
     loop:true,
 	rtl:true,
 	autoplay:true,
-    autoplayTimeout:5000,
+    autoplayTimeout:7000,
     margin:0,
     nav:false,
 	dots:false,
@@ -337,8 +339,7 @@ var imgs = container.getElementsByTagName("img");
 for (var i = 0; i < imgs.length; i++) {
 //imgs[i].style.transform='rotate(90deg)';
 imgs[i].style.height =widthg+'px';
- imgs[i].style.width =hights+'px';
-
+imgs[i].style.width =hights+'px';
     }
  var ite = container.getElementsByClassName('owl-item');
 for (var u = 0; u < ite.length; u++) {
@@ -380,10 +381,11 @@ $("#owl6").owlCarousel({
   navigation : true, 
   slideSpeed : 500,
   autoplay:false,
-  rtl:true,
+  //rtl:true,
   animateOut: 'fadeOutRight',
 //  animateIn: 'fadeInLeft',
   paginationSpeed : 400,
+  vertical:true,
   pagination: false,
   items:1,
  });
@@ -402,7 +404,6 @@ $("#owl6").on('changed.owl.carousel', function(event) {
 }; 
 function playpuse(){
 pali=document.getElementById("playo").value;
- 
 if(pali==1){ document.getElementById("song").pause();
 	document.getElementById("playos").classList.remove("zmdi-pause");
 	document.getElementById("playos").classList.add("zmdi-play");
@@ -419,7 +420,6 @@ $('.customNextBtn').click(function() {
 	$("#owl6").on('changed.owl.carousel', function(event) {
    // alert(event.item.index);
 	 play(event.item.index);
-	 
 })	 
 })
 // Go to the previous item

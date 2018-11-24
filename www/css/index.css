@@ -228,3 +228,12 @@ padding:10px 15px;}
 .marb20{
 	margin-bottom:20px !important;}
 .gerd {border-radius:50%;}
+.wrap,#owee.owl-carousel{
+height:620px;
+overflow:hidden;
+}
+#owee .owl-carousel .owl-item {
+    min-height: 1px;
+    float: none !important;
+	direction:rtl !important;
+}
