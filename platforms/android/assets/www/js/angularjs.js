@@ -12,8 +12,18 @@ setTimeout(function(){
 $scope.uid = device.uuid;
 
 window.resolveLocalFileSystemURL("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
-function onSuccesfsl() {
+function onSuccesfsl(fileEntry) {
 $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
+	var sdatr=response.data.reg[0].time;
+	if(parseInt(sdatr)+86400 < Date.now()){
+		//alert('ttjhg');
+	  $scope.fflag=1; $scope.xflag=0;
+	  $scope.exits();
+	setTimeout(function(){
+	 $scope.exits();
+	}, 2000);
+	
+	}else{
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	document.getElementById('userid').value=response.data.reg[0].id;
 	$scope.xflag=0;
@@ -21,10 +31,11 @@ $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".jso
 	if($scope.flag_pro==0){
 		$scope.fflag=1; 
 	$scope.factor = response.data.factor;
+	
  }else{
 	$scope.xflag=2; 
  }
- 
+ }
 });		
 }
 function onFaidll() {$scope.fflag=1; $scope.xflag=0; }
@@ -161,7 +172,7 @@ $scope.download(urle,File_Namee,'pic');
 }, 1000);
 
 };
- 
+
 ////////////////////////////////////////////////////////////////check file and download
  	$scope.check_file = function(store,File_Name,url,type) {
 window.resolveLocalFileSystemURL(store + File_Name, onSuccesfs, onFaidl);
@@ -334,7 +345,7 @@ $scope.pbooks = function(ides) {
 	$scope.loadshow2=true;
 });	
 $scope.catid=ides;
-//alert(ides);
+//
 };
 
 $scope.tbooks = function(ides) {
@@ -394,6 +405,7 @@ $scope.star = function(num,pageid) {
 
    });
 };
+//////////////////////////////////// reload
 $scope.reloads = function() {
 location.reload(); 
 };
@@ -440,10 +452,19 @@ angular.forEach($scope.factor, function(value, key) {
 $scope.bookid=idds;	
 };
  
-$scope.showfilter = function(eventu){  
-    return eventu.id_book == $scope.id_bookf && 
-      eventu.flag == $scope.fflag ||
-        eventu.flag == $scope.xflag ;
+$scope.showfilter = function(eventu){ 
+if($scope.fflag==2){ 
+  return eventu.id_book == $scope.id_bookf;
+}else
+if($scope.xflag==2){
+ return eventu.id_book == $scope.id_bookf;	
+	}else{$scope.endfssag=1;
+return eventu.id_book == $scope.id_bookf && eventu.flag == $scope.endfssag;	
+		} 
+
+//alert($scope.endflag);
+ 
+	
 };
 ///////////////////////////////////////////////exit user
 $scope.exits = function(){  
@@ -478,6 +499,9 @@ $scope.loadStartCallBack = function() {
  	$http.get("http://gheseban.ir/manage/api.php?online="+$scope.uid).then(function(response) {
 	//alert( response.data.reg[0].fname);
 	if(response.data.reg[0].fname==0){}else{
+	$scope.fname = response.data.reg[0].fname;
+	$scope.flag_pro = response.data.reg[0].flag_pro;
+	if($scope.flag_pro==1){$scope.pro="فعال";}else{$scope.pro="غیر فعال";}
        var urls='http://gheseban.ir/upload/json/'+$scope.uid+'.json';
 var File_Name=$scope.uid+'.json';
 $scope.download(urls,File_Name,'reg');
@@ -492,7 +516,7 @@ $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".jso
 	document.getElementById('userid').value=response.data.reg[0].id;
 	
 	$scope.xflag=0;
-	//alert(response.data.reg[0].id);
+	//alert(response.data.reg[0].fname);
 	if($scope.flag_pro==0){
 		$scope.fflag=1; 
 	$scope.factor = response.data.factor;
@@ -513,18 +537,13 @@ $scope.loginon=true;
  
 };
 $scope.deletefile = function(path,filename){ 
-window.resolveLocalFileSystemURL(path, function(dir) {
-	dir.getFile(filename, {create:false}, function(fileEntry) {
-              fileEntry.remove(function(){
-                 //alert('sds'); // The file has been removed succesfully
-              },function(error){
-                  // Error deleting the file
-              },function(){
-                 // The file doesn't exist
-              });
-	});
-});
+ window.resolveLocalFileSystemURL(path+filename, onSuccesfslt, onFaidllt);
+function onSuccesfslt(fileEn) { 
+fileEn.remove(function(){ });
+}		
+function onFaidllt() {}  
 };
+
  
 $scope.showfaver = function () {
   $.mobile.changePage( "#favert", { transition: "slideup"} ); 
@@ -641,11 +660,14 @@ this.addbook = function(id,name,pic,fave,id_cat)
  
   var db = window.openDatabase("Database", "1.0", "Cordova Ghesbandl", 200000);
         db.transaction(function(tx) 
-        {
+        {tx.executeSql("select id from ghese where idb="+id, [], function(tx, resd) 
+  { //alert(res.rows.length);
+  if(resd.rows.length==0){
 return tx.executeSql("INSERT into ghese(idb,name,pic,fav,id_cat) values("+id+",'"+name+"','"+pic+"',"+fave+","+id_cat+")" , [], function(tx, res) 
             {//alert(id+name+pic+id_cat);
                 return true;
             });
+		}});
         });
         return false;
 },

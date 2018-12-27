@@ -33,8 +33,9 @@
     <div ng-show="progrshow" class="progress"><div class="indeterminate"></div></div>
 </div>
 
-<div role="main" class="ui-content" data-inset="false" > 
- <div ng-show="internets" class="progress"><a class="center" ng-click="reloads()">تلاش مجدد</a><i class="zmdi zmdi-refresh"></i></div>
+<div role="main" class="ui-content" data-inset="false" >
+ <div class="progress" ng-show="internets" ></div> 
+ <div class="trys " ng-show="internets"><a  ng-click="reloads()" class="ui-btn ui-btn-raised clr-primary" >تلاش مجدد  <i class="zmdi zmdi-refresh"></i></a></div>
 <div class="ow1 owl-carousel owl-theme">
     <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcs.photo}}"></a></div>
 </div>
@@ -122,7 +123,7 @@
  قصه های 
 </h6>
 <div class="row pad10">
-<div class="col-xs-12" ng-repeat="event in bookt | filter:{ id : booktid }:true">
+<div class="col-xs-12" ng-repeat="event in bookt | filter:{ id : booktid }">
 <div  class="nd2-card">
 <div class="card-media" >
 <a onClick="ssmx()"  ng-click="showbook(booktid);">
@@ -198,7 +199,7 @@
     <input id="playo" value="1" type="hidden">	
       </div>
  </div>
- 
+ <input type="hidden"  id="nroyy">
 <div  id="ow6x" style="display:none" >
 <div  class="owl-slide"   ng-repeat="eventu in events2 | filter: showfilter">
  <img alt="gheseban" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{eventu.photo}}">  
@@ -251,7 +252,7 @@
  			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
     
        <h6 class="nd2-title">
-قصه های  
+قصه های مورد علاقه
 </h6>
 
 <div class="row pad10">
@@ -419,6 +420,7 @@ $('.customNextBtn').click(function() {
     $("#owl6").trigger('next.owl.carousel');
 	$("#owl6").on('changed.owl.carousel', function(event) {
    // alert(event.item.index);
+
 	 play(event.item.index);
 })	 
 })
@@ -433,8 +435,9 @@ $('.customPrevBtn').click(function() {
 $('#song').on('ended', function() {
 $("#owl6").trigger('next.owl.carousel');
 $("#owl6").on('changed.owl.carousel', function(event) {
-   // alert(event.item.index);
+    
 	 play(event.item.index);
+  
 })	   
 });
 function  play(num){

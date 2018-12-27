@@ -237,3 +237,5 @@ overflow:hidden;
     float: none !important;
 	direction:rtl !important;
 }
+.trys{padding:10px; margin-left:100px; z-index:1000; position:absolute; top:100px;
+right:100px}
