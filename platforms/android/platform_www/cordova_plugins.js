@@ -214,6 +214,14 @@ module.exports = [
             "cordova.InAppBrowser.open",
             "window.open"
         ]
+    },
+    {
+        "id": "cordova-plugin-insomnia.Insomnia",
+        "file": "plugins/cordova-plugin-insomnia/www/Insomnia.js",
+        "pluginId": "cordova-plugin-insomnia",
+        "clobbers": [
+            "window.plugins.insomnia"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -229,7 +237,8 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.2.1",
     "cordova-plugin-geolocation": "2.1.0",
     "cordova-plugin-globalization": "1.0.9",
-    "cordova-plugin-inappbrowser": "1.3.0"
+    "cordova-plugin-inappbrowser": "1.3.0",
+    "cordova-plugin-insomnia": "4.3.0"
 };
 // BOTTOM OF METADATA
 });

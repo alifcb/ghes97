@@ -30,6 +30,9 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
+    <feature name="Insomnia">
+        <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+    </feature>
     <name>قصه بان</name>
     <description>کتاب قصه صوتی کودکان قصه بان</description>
     <author email="support@phonegap.com" href="http://namiaweb.ir">NamiaWeb Team</author>

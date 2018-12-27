@@ -126,14 +126,14 @@
 <div class="col-xs-12" ng-repeat="event in bookt | filter:{ id : booktid }">
 <div  class="nd2-card">
 <div class="card-media" >
-<a onClick="ssmx()"  ng-click="showbook(booktid);">
+<a onClick="ssmx();window.plugins.insomnia.keepAwake()"  ng-click="showbook(booktid);">
 <img alt="namia" height="250px" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{event.photo}}"></a>
 <div class="card-title has-supporting-text">
 <h5 class="card-subtitle flarg clr-purple">{{event.name}}</h5><hr/>
 <h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i>تعداد صفحات: {{event.pages}}</h5>
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت قصه آنلاین: {{event.price}} تومان</h5>
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت کتاب چاپی: {{event.priceb}} تومان</h5>
-<a onClick="ssmx()"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
+<a onClick="ssmx();window.plugins.insomnia.keepAwake()"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
 <a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a>
 <a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">سفارش کتاب چاپی</a><br/>
 </div>
@@ -383,7 +383,7 @@ $("#owl6").owlCarousel({
   slideSpeed : 500,
   autoplay:false,
   //rtl:true,
-  animateOut: 'fadeOutRight',
+//  animateOut: 'fadeOutRight',
 //  animateIn: 'fadeInLeft',
   paginationSpeed : 400,
   vertical:true,
