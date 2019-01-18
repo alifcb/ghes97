@@ -6,6 +6,7 @@ App.controller('CenterCTRL', function ($scope,$http,todoServicez,$sce) {
 $scope.wopen = function(links) {
  window.open(links, '_system', '');
 };
+
 $scope.starshow=true;
 //////////////////////////////////////check online
 setTimeout(function(){
@@ -15,8 +16,8 @@ window.resolveLocalFileSystemURL("file:///storage/emulated/0/Android/com.baan.no
 function onSuccesfsl(fileEntry) {
 $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
 	var sdatr=response.data.reg[0].time;
-	if(parseInt(sdatr)+86400 < Date.now()){
-		//alert('ttjhg');
+	if(parseInt(sdatr)+86400 < (Date.now()/ 1000)){
+		 //alert(Date.now());
 	  $scope.fflag=1; $scope.xflag=0;
 	  $scope.exits();
 	setTimeout(function(){
@@ -48,7 +49,7 @@ function onSuccesfs() {
 	$scope.progrshow=false;
 	todoServicez.list_dl().then(function(items)
 {
-	if(items.length<=3){
+	if(items.length<=20){
 	var Onlins=document.getElementById('online').value;
 if(Onlins==1){
 $scope.startone=false;
@@ -227,8 +228,8 @@ new $.nd2Search({
   defaultIcon : "globe-alt",  // optional: icon | null
 source : dsdf,
   fn : function(result) { // this function will be executed when a valid result item is selected
-    $scope.pbooks(result);
-	$.mobile.changePage( "#booky", { transition: "slideup"} );
+    $scope.tbooks(result);
+	$.mobile.changePage( "#showbook", { transition: "slideup"} );
   }
 });
 	
@@ -357,6 +358,25 @@ $scope.tbooks = function(ides) {
 	$scope.booksid=ides;
 	 var Onlins=document.getElementById('online').value;
 	 var userid=document.getElementById('userid').value;
+	 if(userid==0){$scope.userid=device.uuid;
+	 $scope.singup='ورود';
+	 $scope.singin='عضویت';
+	 }else{
+	 $scope.singup='پرداخت و خرید قصه';
+	 $scope.singin='سفارش کتاب چاپی';
+	 $scope.userid=userid;}
+if(userid!=0){
+	$http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
+$scope.flag_pro = response.data.reg[0].flag_pro;
+	$scope.factor = response.data.factor;
+	if($scope.flag_pro==1){$scope.showpay=false;}
+angular.forEach($scope.factor, function(value, key) {
+		if(value.id_book==ides){$scope.showpay=false;}
+ });  
+ });
+}else{
+$scope.showpay=true;	
+}
 if(Onlins==1){
 	if(userid!=0){
 	$scope.starshow=true;
@@ -475,6 +495,9 @@ $scope.deletefile(path,filename);
  $http.get("http://gheseban.ir/manage/api.php?exit="+$scope.uid).then(function(response) {
 	  if(response.statusText){
 		  document.getElementById('userid').value='0';
+		  $scope.userid=device.uuid;
+		  $scope.singup='ورود';
+		  $scope.singin='عضویت';
 		  $scope.loginon=false;
 		  $scope.loginoff=true;
 		  $scope.starshow=true;//false*
@@ -501,6 +524,9 @@ $scope.loadStartCallBack = function() {
 	if(response.data.reg[0].fname==0){}else{
 	$scope.fname = response.data.reg[0].fname;
 	$scope.flag_pro = response.data.reg[0].flag_pro;
+	$scope.userid=response.data.reg[0].id;
+	 $scope.singup='پرداخت و خرید قصه';
+	 $scope.singin='سفارش کتاب چاپی';
 	if($scope.flag_pro==1){$scope.pro="فعال";}else{$scope.pro="غیر فعال";}
        var urls='http://gheseban.ir/upload/json/'+$scope.uid+'.json';
 var File_Name=$scope.uid+'.json';

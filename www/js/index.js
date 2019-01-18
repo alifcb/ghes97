@@ -68,28 +68,52 @@ function exitFromApp()
 }
  
 document.addEventListener("backbutton", function(e){
-	//alert($.mobile.activePage.attr('id'));
+	// alert($.mobile.activePage.attr('id'));
 	//var myVideo = document.getElementById("videon"); 
 	// myVideo.stop();
 
 	if ($(".ui-panel-open")[0]){ 
-		var els=document.querySelectorAll('.ui-panel-dismiss');
-//alert(els.length); 
-    for (var b = 0; b < els.length; b++) {
-//    els[b].classList.remove('ui-panel-dismiss-open');
-//	    els[b].classList.remove('ui-panel-dismiss-position-left');
+//		var els=document.querySelectorAll('.ui-panel-dismiss');
 //
-//    els[b].classList.remove(' ui-panel-dismiss-display-overlay');
-
-	els[b].style.display='none';
-  }
-	for (var i = 1; i < 6; i++) {
-   document.getElementById('leftpanel'+i).classList.remove("ui-panel-open");
-   document.getElementById('leftpanel'+i).classList.add("ui-panel-close");
-	}
-  
+//    for (var b = 0; b < els.length; b++) {
+////    els[b].classList.remove('ui-panel-dismiss-open');
+////	    els[b].classList.remove('ui-panel-dismiss-position-left');
+////
+////    els[b].classList.remove(' ui-panel-dismiss-display-overlay');
+//alert(els.length); 
+//	els[b].style.display='none';
+//  }
+//	for (var i = 1; i < 6; i++) {
+//   document.getElementById('leftpanel'+i).clclassList.remove("ui-panel-open");
+//   document.getElementById('leftpanel'+i).classList.add("ui-panel-close");
+//	}
+  //for (var i = 1; i < 6; i++) {
+ // document.getElementById('closex').href = "#leftpanel"+i;
+ switch($.mobile.activePage.attr('id')) {
+  case 'one':
+   document.getElementById('closex1').click();
+    break;
+ case 'booky':
+    document.getElementById('closex2').click();
+    break;
+ case 'showbook':
+    document.getElementById('closex3').click();
+    break;
+ case 'profile':
+    document.getElementById('closex4').click();
+    break;			
+  case 'about':
+    document.getElementById('closex5').click();
+    break;
+  case 'favert':
+     document.getElementById('closex6').click();
+    break;	
+	
+  default:
+    // code block
+} 
  
-
+  //}
 } else {
        if($.mobile.activePage.is('#one')){
 		       

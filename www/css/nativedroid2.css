@@ -1101,7 +1101,8 @@ html >body .ui-rangeslider .ui-rangeslider-sliders .ui-slider-track:first-child 
 
 .nd2-toast {
 	display: block;
-
+direction:rtl;
+text-align:right;
 	background-color: #323232;
 	line-height: 48px;
 	width: 450px;

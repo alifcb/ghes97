@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
@@ -20,6 +17,9 @@
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-insomnia": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-network-information": {
@@ -35,6 +35,9 @@
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-contacts": {

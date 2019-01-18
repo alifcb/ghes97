@@ -24,18 +24,62 @@
    <input id="download_flag" value="0" type="hidden">
    <input id="download_num" value="0" type="hidden">
    <input id="userid" value="0" type="hidden">
-
+<a href="#leftpanel1" id="closex1" data-rel="close" class="none">Close panel</a>
+<a href="#leftpanel2" id="closex2" data-rel="close" class="none">Close panel</a>
+<a href="#leftpanel3" id="closex3" data-rel="close" class="none">Close panel</a>
+<a href="#leftpanel4" id="closex4" data-rel="close" class="none">Close panel</a>
+<a href="#leftpanel5" id="closex5" data-rel="close" class="none">Close panel</a>
+<a href="#leftpanel6" id="closex6" data-rel="close" class="none">Close panel</a>
 <div data-role="page" class="nd2-no-menu-swipe" id="one">
-<nd2-include  data-src="pages/panel.left.html"></nd2-include>
+			<!-- panel left -->
+			<div data-role="panel"   id="leftpanel1" data-position="right" data-display="overlay" data-position-fixed="true" >
+
+				<div class="nd2-sidepanel-profile wow fadeInDown">
+					<img class="profile-background" src="img/bnnr.jpg" />
+					<div class="row">
+						
+	<div class="col-xs-8" ng-controller="CenterCTRL">
+							<div class="box profile-text">
+								<strong>قصه بان</strong>
+								<span class="subline"><a href="#profile">{{fname}}</a></span>
+							</div>
+						</div>
+                        <div class="col-xs-4 center-xs">
+							<div class="box">
+								<img class="profile-thumbnail" src="img/logo.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul data-role="listview"   data-inset="false">
+					<li data-role="list-divider">پروفایل</li>
+                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
+                    <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
+                    <li  ng-show="loginon" ><a onclick="angular.element($('#CenterCTRL')).scope().exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+				</ul> 
+				<hr class="inset">
+				<ul data-role="listview"   data-inset="false">
+                <li data-role="list-divider">دسترسی ها</li>
+                    <li  ><a href="#one"  data-icon="false"><i class="zmdi zmdi-view-list-alt"></i>  دسته بندی قصه ها</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().showfaver()"  data-icon="false"><i class="zmdi zmdi-favorite"></i> قصه های مورد علاقه</a></li>
+                    <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
+                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().openb('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
+</ul>
+</div>
+			<!-- /panel left -->
 <div  data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-    <a href="#leftpanel1" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+    <a href="#leftpanel1" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.2s"><i class="zmdi zmdi-menu"></i></a>
     <h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
     <div ng-show="progrshow" class="progress"><div class="indeterminate"></div></div>
 </div>
 
 <div role="main" class="ui-content" data-inset="false" >
  <div class="progress" ng-show="internets" ></div> 
- <div class="trys " ng-show="internets"><a  ng-click="reloads()" class="ui-btn ui-btn-raised clr-primary" >تلاش مجدد  <i class="zmdi zmdi-refresh"></i></a></div>
+ <div class="trys " ng-show="internets"><a  ng-click="reloads()" class="ui-btn ui-btn-raised clr-primary" >تلاش مجدد  <i class="zmdi zmdi-refresh"></i></a><br>
+<br>
+</div>
 <div class="ow1 owl-carousel owl-theme">
     <div class="item" ng-repeat="xcs in slider"><a ng-click="pbooks(xcs.id_book);"><img alt="namia" src="file:///storage/emulated/0/Android/com.baan.no/pic/{{xcs.photo}}"></a></div>
 </div>
@@ -66,7 +110,7 @@
 
 </div>
 </div>
-</div>
+</div> 
 </div>
 <div data-role="page" id="booky" data-transition="fade" class="nd2-no-menu-swipe">
 			<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
@@ -134,8 +178,8 @@
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت قصه آنلاین: {{event.price}} تومان</h5>
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت کتاب چاپی: {{event.priceb}} تومان</h5>
 <a onClick="ssmx();window.plugins.insomnia.keepAwake()"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
-<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">پرداخت و خرید قصه</a>
-<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+uid,1)" class="ui-btn ui-btn-raised clr-primary">سفارش کتاب چاپی</a><br/>
+<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singup}}</a>
+<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singin}}</a><br/>
 </div>
 </div>
 
@@ -242,10 +286,11 @@
 </div>
 
 <div data-role="page" id="favert" data-transition="fade" class="nd2-no-menu-swipe">
-			<nd2-include  data-src="pages/panel.left2.html"></nd2-include>
+
+			<nd2-include  data-src="pages/panel.left6.html"></nd2-include>
 			<div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
            <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
- 				<a href="#leftpanel2" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
+ 				<a href="#leftpanel6" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
                  <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
 			</div>
@@ -454,6 +499,8 @@ document.getElementById("playos").classList.remove("zmdi-play");
 	document.getElementById("playos").classList.add("zmdi-pause");
 }
 }
+
+
     </script>
 </body>
 </html>
