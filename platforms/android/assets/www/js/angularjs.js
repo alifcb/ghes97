@@ -7,11 +7,11 @@ $scope.wopen = function(links) {
  window.open(links, '_system', '');
 };
 
-$scope.starshow=true;
+$scope.starshow=true; 
+
 //////////////////////////////////////check online
 setTimeout(function(){
 $scope.uid = device.uuid;
-
 window.resolveLocalFileSystemURL("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json", onSuccesfsl, onFaidll);
 function onSuccesfsl(fileEntry) {
 $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
@@ -44,8 +44,19 @@ function onFaidll() {$scope.fflag=1; $scope.xflag=0; }
 
 var store = "file:///storage/emulated/0/Android/com.baan.no/json/";
 var File_Name = "one.json";
-  window.resolveLocalFileSystemURL(store + File_Name, onSuccesfs, onFaidl);
-function onSuccesfs() {
+window.resolveLocalFileSystemURL(store + File_Name, onSuccesfs, onFaidl);
+  
+function onSuccesfs() { 
+todoServicez.chekok().then(function(items)
+{
+	if(items==0){
+		var path = "file:///storage/emulated/0/Android/com.baan.no/json/";
+		var File_Name = "one.json";
+ $scope.deletefile(path,File_Name);
+ location.reload();
+	}
+	
+});
 	$scope.progrshow=false;
 	todoServicez.list_dl().then(function(items)
 {
@@ -65,40 +76,26 @@ $scope.loadshow=false;
 	
 	$http.get("file:///storage/emulated/0/Android/com.baan.no/json/one.json").then(function(response) {
 	$scope.genr =	response.data.genrate[0];
-	
 	$scope.cats = response.data.cats;
 	$scope.books = response.data.books;
 	$scope.eventsx = response.data.events;
-	//var counts = Object.keys($scope.slider).length;
- angular.forEach($scope.cats, function(value, key) {
- 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic'); 
-});
-
- angular.forEach($scope.books, function(value, key) {
- 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic'); 
-});
- 
- angular.forEach($scope.eventsx, function(value, key) {
- 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic'); 
-});
-angular.forEach($scope.eventsx, function(value, key) {
- 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/music/',value.audio,value.music,'music'); 
-});	
-
+	 $scope.slider = response.data.slider;
+document.getElementById('slider_flag').value=1;//alert($scope.genr);
  var Onlins=document.getElementById('online').value;
 if(Onlins==1){
-
 $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
- if($scope.genr==response.data.genrate[0]){
-	 $scope.slider = response.data.slider;
-	document.getElementById('slider_flag').value=1;//alert($scope.genr);
-	angular.forEach($scope.slider, function(value, key) {
- 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic'); 
-});	
-	 }else{
-	$scope.progrshow=true;
-	$scope.start();
-	//	
+ var dx=0;angular.forEach($scope.books, function(value, key) {
+	 console.log(value.update +'  '+response.data.books[dx].update);
+ if(value.update!=response.data.books[dx].update){
+		todoServicez.dlzip(value.id,0);
+		} 
+	dx=dx+1;
+});		
+ if($scope.genr==response.data.genrate[0]){	 }else{
+
+ //	$scope.progrshow=true;
+	 $scope.start();		
+	
  }
 });
 }else{
@@ -243,7 +240,7 @@ source : dsdf,
 //$scope.download(urlse,File_Namese,'json');
 //}, 2000);
 
-/////////////////////////////////////////////////////////downloder
+//////////////////////////////////////////////////////////////////////downloder
 $scope.download=function(urls,File_Name,type){
 	document.getElementById('download_flag').value=1;
 	if(File_Name=='.nomedia' || type=='json'){
@@ -281,43 +278,24 @@ fileTransfer.onprogress = function(progressEvent) {//alert(urls);
 			document.getElementById('download_flag').value=0;
 			todoServicez.dlfile(File_Name,urls,1,type);
 if(File_Name=='one.json'){
-	
-	setTimeout(function(){
-location.reload(); 
-}, 11000);
+$scope.downloadzip('all.zip',0);
+
 $scope.startone=true;
 $scope.loadshow=false;
-			setTimeout(function(){
+	 
 	$http.get("file:///storage/emulated/0/Android/com.baan.no/json/one.json").then(function(response) {
 	$scope.sliderx = response.data.slider;
 	$scope.booksy = response.data.books;
 	$scope.eventk = response.data.events;
-angular.forEach($scope.sliderx, function(value, key) {
- 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic'); 
-});
-setTimeout(function(){	
-
 $scope.cats = response.data.cats;
-angular.forEach($scope.cats, function(value, key) {
- 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic');
-	todoServicez.dlfile(value.photo,value.pic,0,'pic'); 
-});	}, 2000);
+ 
 setTimeout(function(){$scope.slider=$scope.sliderx;
 document.getElementById('slider_flag').value=1;
 angular.forEach($scope.booksy, function(value, key) {
- 	//$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/pic/',value.photo,value.pic,'pic'); 
-	todoServicez.dlfile(value.photo,value.pic,0,'pic');	
 	todoServicez.addbook(value.id,value.name,value.photo,0,value.id_cat);
-});	}, 5000);
-setTimeout(function(){
- angular.forEach($scope.eventk, function(value, key) {
-	todoServicez.dlfile(value.audio,value.music,0,'music');
-});}, 7000);
- setTimeout(function(){
-angular.forEach($scope.eventk, function(value, key) {
-todoServicez.dlfile(value.photo,value.pic,0,'pic');
-});	}, 9000);
-});	}, 500);
+});	}, 2000);
+ 
+});	 
 			}
 if(type=='reg'){
 		setTimeout(function(){
@@ -336,7 +314,7 @@ if(type=='reg'){
 }
 };
 	};
-
+///////////////////////////////////////////////////////////////
 $scope.pbooks = function(ides) {
 	$scope.progrshow2=true;
 	$scope.loadshow2=false;
@@ -348,8 +326,75 @@ $scope.pbooks = function(ides) {
 $scope.catid=ides;
 //
 };
+///////////////////////////////////////////////////////////
+$scope.downloadzip =function(File_Name,ids){
+if(ids!=0){$scope.shoply=true;
+document.getElementById('loaderzip').classList.add("ui-disabled");
+document.getElementById('plyfile').classList.add("none");
+}
+urls='http://gheseban.ir/upload/zip/'+File_Name;
+var fileTransfer = new FileTransfer();
+var uri = encodeURI(urls);
+fileTransfer.download(
+uri,
+"file:///storage/emulated/0/Android/com.baan.no/"+File_Name,
+function(entt) {
+},
+function(error) {
+  console.log("upload error code" + urls);
+},
+false,
+{
+  headers: {
+	  "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+  }
+});
+fileTransfer.onprogress = function(progressEvent) {//alert(urls);
+		if (progressEvent.lengthComputable) {
+			var perc=0;
+			perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+			if(ids!=0){
+			document.getElementById('loaderzip').innerHTML=' % در حال دریافت '+perc;}
+			if(perc>=100){
+if(ids!=0){document.getElementById('plyfile').classList.remove("none");			
+ document.getElementById('loaderzip').classList.remove("ui-disabled");
+  document.getElementById('loaderzip').classList.add("none");
+}
+var ZipPath = "file:///storage/emulated/0/Android/com.baan.no/"+File_Name;
+var ZipExtractDirectory = "/storage/emulated/0/Android/com.baan.no/";
+window.zip.unzip(ZipPath, ZipExtractDirectory, StatusCallback);
+var StatusCallback = function(status){
+if(status == 0){
+var path = "file:///storage/emulated/0/Android/com.baan.no/";
+$scope.deletefile(path,File_Name);
 
+}else if(status == -1){
+alert('یک خطا رخ داده است!');
+}
+};
+
+if(ids!=0){
+todoServicez.dlzip(ids,1);
+}else{
+ setTimeout(function(){location.reload();}, 3000);	
+}
+}
+		}
+};
+};
+////////////////////////////////////////////////////
 $scope.tbooks = function(ides) {
+
+ todoServicez.ifzip(ides).then(function(items)
+{   //alert(items[0].zip);
+ if(items[0].zip==0 || items[0].zip==null){
+	$scope.shozip=true;
+	$scope.shoply=false;
+}else{
+	$scope.shozip=false;
+	$scope.shoply=true;
+	}
+});
 	$scope.showpay=true;
 	$scope.progrshow2=true;
 	$scope.loadshow2=false;
@@ -682,20 +727,49 @@ return deferred.promise;
 },
 
 this.addbook = function(id,name,pic,fave,id_cat) 
-    { //
- 
+    {  //alert(id+name+pic+id_cat);
   var db = window.openDatabase("Database", "1.0", "Cordova Ghesbandl", 200000);
         db.transaction(function(tx) 
         {tx.executeSql("select id from ghese where idb="+id, [], function(tx, resd) 
-  { //alert(res.rows.length);
-  if(resd.rows.length==0){
+  {  
+  if(resd.rows.length==0){//console.log(id+name+pic+id_cat);
 return tx.executeSql("INSERT into ghese(idb,name,pic,fav,id_cat) values("+id+",'"+name+"','"+pic+"',"+fave+","+id_cat+")" , [], function(tx, res) 
-            {//alert(id+name+pic+id_cat);
+            { 
                 return true;
             });
 		}});
         });
         return false;
+},
+this.dlzip = function(idss,fave) 
+    {//alert(idss+fave);
+		var db = window.openDatabase("Database", "1.0", "Cordova Ghesbandl", 200000);
+        db.transaction(function(tx) 
+        {
+return tx.executeSql("UPDATE ghese SET flagd="+fave+" where idb="+idss , [], function(tx, res) 
+		{
+			return true;
+		});
+        });
+        return false;
+    },
+ this.ifzip = function(para)
+{  //alert(para);
+ var idcom=para;
+var deferred, result = [];
+deferred = $q.defer();
+var db = window.openDatabase("Database", "1.0", "Cordova Ghesbandl", 200000);
+db.transaction(function(tx) 
+{ tx.executeSql("select flagd  from ghese where idb="+para , [], function(tx, res) 
+  {  // alert(res.rows.length);
+	  for(var i = 0; i < res.rows.length; i++)
+	  { 
+  result.push({zip : res.rows.item(i).flagd});
+  }
+  deferred.resolve(result);
+});
+});
+return deferred.promise;
 },
 this.faverat = function(idss,fave) 
     {//alert(idss+fave);
@@ -728,8 +802,18 @@ return tx.executeSql("UPDATE ghese SET fav="+fave+" where idb="+idss , [], funct
 	  });
 	  return deferred.promise;
     },
-this.list_dl2 = function(count,list) 
-    {//alert(idss+fave);
-	// alert(count);
+this.chekok = function() 
+    {  var deferred, result = [];
+	  deferred = $q.defer();
+	  var db = window.openDatabase("Database", "1.0", "Cordova Ghesbandl", 200000);
+	  db.transaction(function(tx) 
+	  {
+	   tx.executeSql("select  * from ghese where  1", [], function(tx, res) 
+		  {result=res.rows.length;
+		 
+		  deferred.resolve(result);
+		});
+	  });
+	  return deferred.promise;
 	}
     });

@@ -206,7 +206,7 @@ padding:10px 15px;}
   -moz-transform:    rotate(90deg);
   transform:         rotate(90deg);
 }
-.iconvas{margin:0 auto; display:block; width:203px; position:relative;}
+.iconvas{margin:0 auto; display:block; width:100%; position:relative;}
 .iconfl a:hover{color:#F5E8E8; background-color:#FC6769}
 .iconfl a{font-size:32px; margin-left:9px;   padding:5px 19px 0; color:#FFFFFF; opacity:0.5; background-color:#FF6467; border-radius:50%;}
 .centers{ margin:0 auto !important; display:block; color:#0E0D0D !important; width:80px; height:80px;}
@@ -239,3 +239,6 @@ overflow:hidden;
 }
 .trys{padding:10px; margin-left:110px; z-index:1000; position:absolute; top:300px;
 right:100px}
+.pco{text-align:right; direction:rtl; border-right:3px solid #08C7E7; padding-right:10px;}
+.sellp{  margin-left:9px; margin-bottom:-10px !important;   padding:10px 10px !important ;  border-radius:8px !important; font-size:11px !important;}
+.sellc{  margin-left:9px; margin-bottom:-10px !important;   padding:10px 10px !important ;  border-radius:8px !important; font-size:11px !important;  background-color:#17F460 !important;  }

@@ -33,6 +33,9 @@
     <feature name="Insomnia">
         <param name="android-package" value="nl.xservices.plugins.Insomnia" />
     </feature>
+    <feature name="Zip">
+        <param name="android-package" value="org.apache.cordova.Zip" />
+    </feature>
     <name>قصه بان</name>
     <description>کتاب قصه صوتی کودکان قصه بان</description>
     <author email="support@phonegap.com" href="http://namiaweb.ir">NamiaWeb Team</author>

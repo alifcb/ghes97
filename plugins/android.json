@@ -42,6 +42,9 @@
         },
         "cordova-plugin-insomnia": {
             "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-zip": {
+            "PACKAGE_NAME": "com.namia.ghesban"
         }
     },
     "dependent_plugins": {}

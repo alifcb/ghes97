@@ -222,6 +222,14 @@ module.exports = [
         "clobbers": [
             "window.plugins.insomnia"
         ]
+    },
+    {
+        "id": "cordova-plugin-zip.Zip",
+        "file": "plugins/cordova-plugin-zip/zip.js",
+        "pluginId": "cordova-plugin-zip",
+        "clobbers": [
+            "zip"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -238,7 +246,8 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "2.1.0",
     "cordova-plugin-globalization": "1.0.9",
     "cordova-plugin-inappbrowser": "1.3.0",
-    "cordova-plugin-insomnia": "4.3.0"
+    "cordova-plugin-insomnia": "4.3.0",
+    "cordova-plugin-zip": "3.1.0"
 };
 // BOTTOM OF METADATA
 });

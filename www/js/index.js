@@ -45,10 +45,10 @@ db.transaction(table, errorCB, successCB);
 // end onDeviceBase
 function table(tx){    
  //tx.executeSql('DROP TABLE IF EXISTS downloads');
- // tx.executeSql('DROP TABLE IF EXISTS ghese');
+// tx.executeSql('DROP TABLE IF EXISTS ghese');
 tx.executeSql('CREATE TABLE IF NOT EXISTS settings(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, title text,valuem text)');
 tx.executeSql('CREATE TABLE IF NOT EXISTS downloads(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, id_file INTEGER,links text,pic text,type text,flag INTEGER)');
-tx.executeSql('CREATE TABLE IF NOT EXISTS ghese(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, idb INTEGER, id_cat INTEGER, name text, pic text, fav INTEGER)');
+tx.executeSql('CREATE TABLE IF NOT EXISTS ghese(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, idb INTEGER, id_cat INTEGER, name text, pic text, fav INTEGER,flagd INTEGER)');
 
 //alert('dd');
 }
