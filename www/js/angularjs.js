@@ -53,7 +53,7 @@ todoServicez.chekok().then(function(items)
 		var path = "file:///storage/emulated/0/Android/com.baan.no/json/";
 		var File_Name = "one.json";
  $scope.deletefile(path,File_Name);
- location.reload();
+ setTimeout(function(){location.reload();}, 3000);	
 	}
 	
 });
