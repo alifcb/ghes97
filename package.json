@@ -4,7 +4,8 @@
     "displayName": "قصه بان",
     "cordova": {
         "platforms": [
-            "android"
+            "android",
+            "browser"
         ],
         "plugins": {
             "cordova-plugin-device-orientation": {},
@@ -33,6 +34,7 @@
     },
     "dependencies": {
         "cordova-android": "~6.2.3",
+        "cordova-browser": "^4.1.0",
         "cordova-plugin-battery-status": "~1.1.1",
         "cordova-plugin-camera": "~2.1.1",
         "cordova-plugin-console": "~1.0.2",
@@ -42,13 +44,13 @@
         "cordova-plugin-device-orientation": "~1.0.2",
         "cordova-plugin-dialogs": "~1.2.0",
         "cordova-plugin-file": "~4.1.1",
-        "cordova-plugin-file-transfer": "~1.5.0",
+        "cordova-plugin-file-transfer": "^1.5.1",
         "cordova-plugin-geolocation": "~2.1.0",
         "cordova-plugin-globalization": "~1.0.3",
         "cordova-plugin-inappbrowser": "2.0.2",
         "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
-        "cordova-plugin-media": "~2.2.0",
-        "cordova-plugin-media-capture": "~1.2.0",
+        "cordova-plugin-media": "^2.2.0",
+        "cordova-plugin-media-capture": "^1.2.0",
         "cordova-plugin-network-information": "2.0.1",
         "cordova-plugin-splashscreen": "5.0.2",
         "cordova-plugin-statusbar": "~2.1.2",

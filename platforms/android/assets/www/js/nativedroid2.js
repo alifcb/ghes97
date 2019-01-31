@@ -532,7 +532,7 @@
             };
 
             _self.getSearchInput = function() {
-                return "<input type='text'  class='nd2-search-input' value='' placeholder='" + _self.options.placeholder + "' />";
+                return "<input type='text'  class='nd2-search-input' value=''   placeholder='" + _self.options.placeholder + "' />";
             };
 
             _self.activateSearch = function() {
@@ -571,7 +571,7 @@
 
                 _self.getSearchInputObj().autocomplete({
                         delay: 500,
-                        minLength: 4,
+                        minLength: 3,
                         source: _self.options.source,
                         select: function(e, ui) {
                             if (typeof ui.item !== 'undefined' && typeof ui.item.value !== 'undefined') {

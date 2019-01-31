@@ -8,7 +8,7 @@ $scope.wopen = function(links) {
 };
 
 $scope.starshow=true; 
-
+  $scope.showag=true;
 //////////////////////////////////////check online
 setTimeout(function(){
 $scope.uid = device.uuid;
@@ -34,6 +34,7 @@ $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".jso
 	$scope.factor = response.data.factor;
 	
  }else{
+	   $scope.showag=true;
 	$scope.xflag=2; 
  }
  }
@@ -85,7 +86,7 @@ document.getElementById('slider_flag').value=1;//alert($scope.genr);
 if(Onlins==1){
 $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
  var dx=0;angular.forEach($scope.books, function(value, key) {
-	 console.log(value.update +'  '+response.data.books[dx].update);
+	// console.log(value.update +'  '+response.data.books[dx].update);
  if(value.update!=response.data.books[dx].update){
 		todoServicez.dlzip(value.id,0);
 		} 
@@ -116,7 +117,7 @@ function onSuccesfsd() {
 	$scope.fname = response.data.reg[0].fname;
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	document.getElementById('userid').value=response.data.reg[0].id;
-	if($scope.flag_pro==1){$scope.pro="فعال";}else{$scope.pro="غیر فعال";}
+	if($scope.flag_pro==1){$scope.pro="فعال";  $scope.showag=false;}else{$scope.pro="غیر فعال";}
 	document.getElementById('reg_flag').value=1;
 	$scope.factor = response.data.factor;
 	});
@@ -210,7 +211,7 @@ $scope.loadshow=true;
 }, 12000);
 
 
-///////////////////////////////////////////search 
+///////////////////////////////////////////////////////////////search 
  
 setTimeout(function(){
 	$scope.check_file('file:///storage/emulated/0/Android/com.baan.no/json/','search.json','http://gheseban.ir/manage/search.json','json');
@@ -225,14 +226,18 @@ new $.nd2Search({
   defaultIcon : "globe-alt",  // optional: icon | null
 source : dsdf,
   fn : function(result) { // this function will be executed when a valid result item is selected
-    $scope.tbooks(result);
-	$.mobile.changePage( "#showbook", { transition: "slideup"} );
+//$scope.idbser=result;
+ 
+   document.getElementById("igh").value=result;
+  // $scope.tbooks(result);
+  // $scope.shopk=result;
+  document.getElementById("clserch").click();
+	 $.mobile.changePage( "#showbook", { transition: "slideup"} );
   }
 });
 	
 });  
 }, 3000);
-
 
 //setTimeout(function(){
 //var urlse='http://gheseban.ir/manage/';
@@ -383,9 +388,10 @@ todoServicez.dlzip(ids,1);
 };
 };
 ////////////////////////////////////////////////////
-$scope.tbooks = function(ides) {
-
- todoServicez.ifzip(ides).then(function(items)
+$scope.tbooks = function(idbol) {
+ 
+document.getElementById('id_ghes').value=idbol;
+ todoServicez.ifzip(idbol).then(function(items)
 {   //alert(items[0].zip);
  if(items[0].zip==0 || items[0].zip==null){
 	$scope.shozip=true;
@@ -396,11 +402,11 @@ $scope.tbooks = function(ides) {
 	}
 });
 	$scope.showpay=true;
-	$scope.progrshow2=true;
-	$scope.loadshow2=false;
-	$scope.booktid=ides;
-	$scope.booid=ides;
-	$scope.booksid=ides;
+    $scope.progrshow2=false;
+	$scope.loadshow2=true;
+	$scope.booktid=idbol;
+	$scope.booid=idbol;
+	$scope.booksid=idbol;
 	 var Onlins=document.getElementById('online').value;
 	 var userid=document.getElementById('userid').value;
 	 if(userid==0){$scope.userid=device.uuid;
@@ -414,9 +420,10 @@ if(userid!=0){
 	$http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
 $scope.flag_pro = response.data.reg[0].flag_pro;
 	$scope.factor = response.data.factor;
-	if($scope.flag_pro==1){$scope.showpay=false;}
+	if($scope.flag_pro==1){$scope.showpay=false;
+	  $scope.showag=false;}
 angular.forEach($scope.factor, function(value, key) {
-		if(value.id_book==ides){$scope.showpay=false;}
+		if(value.idb==idbol){$scope.showpay=false;}
  });  
  });
 }else{
@@ -435,8 +442,10 @@ if(Onlins==1){
 		});
 		}
 	$http.get("file:///storage/emulated/0/Android/com.baan.no/json/one.json").then(function(response) {
-	$scope.bookt = response.data.books;
-todoServicez.iffav(ides).then(function(items)
+	$scope.booktu = response.data.books;
+	//alert($scope.booktu[0].name);
+	});	
+todoServicez.iffav(idbol).then(function(items)
 { //alert(items[0].fav);
 $scope.efaver=items[0].fav;
 if(items[0].fav==0){
@@ -449,7 +458,7 @@ $scope.efaver=items[0].fav;
 });
 	$scope.progrshow2=false;
 	$scope.loadshow2=true;
-});	
+
  
 };
 $scope.showprice = function(priceff){  //alert(priceff);
@@ -512,7 +521,7 @@ $http.get("file:///storage/emulated/0/Android/com.baan.no/json/one.json").then(f
  }
  
 angular.forEach($scope.factor, function(value, key) {
-		if(value.id_book==idds){$scope.xflag=2;}
+		if(value.idb==idds){$scope.xflag=2;}
  });  
 $scope.bookid=idds;	
 };
@@ -543,7 +552,10 @@ $scope.deletefile(path,filename);
 		  $scope.userid=device.uuid;
 		  $scope.singup='ورود';
 		  $scope.singin='عضویت';
+		  $scope.fname = '';
 		  $scope.loginon=false;
+		  $scope.showag=false;
+		  $scope.showpay=true;
 		  $scope.loginoff=true;
 		  $scope.starshow=true;//false*
 		  $scope.commshow=false;
@@ -551,28 +563,41 @@ $scope.deletefile(path,filename);
 
  });
 };
-
-
+/////////////////////////////////////////////////////
+$scope.allgh = function(){ 
+$scope.uid = device.uuid;
+$http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
+	$scope.myfaver = response.data.factor;
+});
+};
+////////////////////////////////////////////////////
 $scope.inappb = function(links,type){ 
 //alert(links);
- var browser = cordova.InAppBrowser.open(links, '_blank', 'location=no','hideurlbar=yes');
+ var browser = cordova.InAppBrowser.open(links, '_blank', 'location=yes','hideurlbar=yes');
   browser.addEventListener('exit', function(){
   browser.executeScript({code: $scope.loadStartCallBack()});
 });
 };
-
+$scope.closebrowser = function(){ 
+//alert(links);
+browser.close();  
+};
 
 $scope.loadStartCallBack = function() {
   $scope.uid = device.uuid;	
  	$http.get("http://gheseban.ir/manage/api.php?online="+$scope.uid).then(function(response) {
 	//alert( response.data.reg[0].fname);
+	var id_ghes=document.getElementById('id_ghes').value;
+	angular.forEach(response.data.factor, function(value, key) {
+		if(value.idb==id_ghes){$scope.showpay=false;}
+ });  
 	if(response.data.reg[0].fname==0){}else{
 	$scope.fname = response.data.reg[0].fname;
 	$scope.flag_pro = response.data.reg[0].flag_pro;
 	$scope.userid=response.data.reg[0].id;
 	 $scope.singup='پرداخت و خرید قصه';
 	 $scope.singin='سفارش کتاب چاپی';
-	if($scope.flag_pro==1){$scope.pro="فعال";}else{$scope.pro="غیر فعال";}
+	if($scope.flag_pro==1){$scope.pro="فعال";$scope.showpay=false; $scope.showag=false;}else{$scope.pro="غیر فعال";  $scope.showag=true;}
        var urls='http://gheseban.ir/upload/json/'+$scope.uid+'.json';
 var File_Name=$scope.uid+'.json';
 $scope.download(urls,File_Name,'reg');
@@ -592,6 +617,7 @@ $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".jso
 		$scope.fflag=1; 
 	$scope.factor = response.data.factor;
  }else{
+	   $scope.showag=true;
 	$scope.xflag=2; 
  }
  

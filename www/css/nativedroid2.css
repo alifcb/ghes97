@@ -668,7 +668,7 @@ code {
 	background-color: rgba(0,0,0,0.24);
 	color: rgba(0,0,0,0.85);
 }
-
+.ui-btn{z-index:0;}
 /*
  * HR
  */
@@ -1209,6 +1209,11 @@ text-align:right;
 .nd2-search-input::-moz-placeholder { color: rgba(255,255,255,0.6); }
 .nd2-search-input:-ms-input-placeholder { color: rgba(255,255,255,0.6); }
 
+.nd2-search-active .nd2-search-input::-webkit-input-placeholder { opacity:0 !important ; }
+.nd2-search-active .nd2-search-input:-moz-placeholder { opacity:0 !important; }
+.nd2-search-active .nd2-search-input::-moz-placeholder {  opacity:0 !important;  }
+.nd2-search-active .nd2-search-input::placeholder {  opacity:0 !important;  }
+.nd2-search-active .nd2-search-input:-ms-input-placeholder {  opacity:0 !important;  }
 .ui-autocomplete {
 	display: block;
 	position: fixed;
@@ -1479,17 +1484,16 @@ text-align:right;
 
 .nd2-card .card-title {
 	padding: 10px 8px;
-	max-height:500px !important;
+	max-height:600px !important;
 }
 .card-supporting-text img {
- 
     width: 110%;
     height: 180px;
  
     margin: 0 -16px;
 }
 .nd2-card{
-	max-height:600px !important;}
+	max-height:670px !important;}
 .ow1 img{height:180px !important;}
 .nd2-card .card-namia {
     font-size: 15px;

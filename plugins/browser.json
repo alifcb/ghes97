@@ -7,33 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-insomnia": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
-        "cordova-plugin-zip": {
-            "PACKAGE_NAME": "com.namia.ghesban"
-        },
         "cordova-plugin-battery-status": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
@@ -44,6 +17,9 @@
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-device-motion": {
@@ -61,12 +37,34 @@
         "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-insomnia": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.namia.ghesban"
         },
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        },
+        "cordova-plugin-zip": {
+            "PACKAGE_NAME": "com.namia.ghesban"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.namia.ghesban"
+        }
+    }
 }
