@@ -51,10 +51,7 @@ function onSuccesfs() {
 todoServicez.chekok().then(function(items)
 {
 	if(items==0){
-		var path = "file:///storage/emulated/0/Android/com.baan.no/json/";
-		var File_Name = "one.json";
- $scope.deletefile(path,File_Name);
- setTimeout(function(){location.reload();}, 3000);	
+$scope.start();
 	}
 	
 });
@@ -368,10 +365,13 @@ if(ids!=0){document.getElementById('plyfile').classList.remove("none");
 var ZipPath = "file:///storage/emulated/0/Android/com.baan.no/"+File_Name;
 var ZipExtractDirectory = "/storage/emulated/0/Android/com.baan.no/";
 window.zip.unzip(ZipPath, ZipExtractDirectory, StatusCallback);
-var StatusCallback = function(status){
-if(status == 0){
-var path = "file:///storage/emulated/0/Android/com.baan.no/";
+ setTimeout(function(){
+	 var path = "file:///storage/emulated/0/Android/com.baan.no/";
 $scope.deletefile(path,File_Name);
+	 }, 3000);	
+var StatusCallback = function(status){alert(0);
+if(status == 0){
+
 
 }else if(status == -1){
 alert('یک خطا رخ داده است!');
@@ -646,9 +646,11 @@ $scope.loginon=true;
 $scope.deletefile = function(path,filename){ 
  window.resolveLocalFileSystemURL(path+filename, onSuccesfslt, onFaidllt);
 function onSuccesfslt(fileEn) { 
-fileEn.remove(function(){ });
+fileEn.remove(function(){//alert('yes');
+});
 }		
-function onFaidllt() {}  
+function onFaidllt() {//alert('no');
+}  
 };
 
  
