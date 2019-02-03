@@ -116,13 +116,14 @@ document.addEventListener("backbutton", function(e){
   //}
 } else {
        if($.mobile.activePage.is('#one')){
-		       
            e.preventDefault();
            navigator.app.exitApp();
        }
        else if($.mobile.activePage.is('#fullslide')){
     document.getElementById("song").pause();
 	navigator.app.backHistory();
+	   }else if($.mobile.activePage.is('#favert')){
+     $.mobile.changePage( "#one", { transition: "slideup"} );
 	   }else {
 	
 		 e.preventDefault();

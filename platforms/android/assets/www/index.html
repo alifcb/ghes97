@@ -256,11 +256,11 @@
 <h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i>تعداد صفحات رایگان: {{event.free}}</h5>
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت قصه آنلاین: {{event.price}} تومان</h5>
 <h5 class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت کتاب چاپی: {{event.priceb}} تومان</h5>
-<p class="pco" ng-show="showpay"> قصه {{event.name}} شامل {{event.free}} صفحه رایگان است برای استفاده از تمام صفحات باید قصه را خریداری نمایید.</p>
+<p class="pco" ng-show="showpay"> قصه {{event.name}} شامل {{event.free}} صفحه رایگان است برای استفاده از تمام صفحات قصه را خریداری نمایید.</p>
 <a ng-show="shoply" onClick="ssmx();window.plugins.insomnia.keepAwake()" id="plyfile"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
 <a ng-show="shozip" ng-click="downloadzip(booktid+'.zip',booktid);" id="loaderzip" class="ui-btn ui-btn-raised clr-bg-green">دانلود فایل قصه</a>
 <a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singup}}</a>
-<a ng-show="showpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singin}}</a><br/>
+<a ng-show="showch" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singin}}</a><br/>
 </div>
 </div>
 
@@ -451,9 +451,9 @@
            <a  href="#one" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay="0.1s"><i class="zmdi zmdi-long-arrow-left"></i></a>
  				<a href="#leftpanel6" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay="0.8s"><i class="zmdi zmdi-menu"></i></a>
 				<h1 class="wow fadeIn" data-wow-delay="0.4s">قصه بان</h1>
-                 <div ng-show="progrshow2" class="progress"><div class="indeterminate"></div></div>
+               
 			</div>
- 			<div role="main" class="ui-content" ng-show="loadshow2" data-inset="false">
+ 			<div role="main" class="ui-content"  data-inset="false">
     
        <h6 class="nd2-title">
 قصه های قصه بان

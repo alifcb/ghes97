@@ -402,6 +402,7 @@ document.getElementById('id_ghes').value=idbol;
 	}
 });
 	$scope.showpay=true;
+	$scope.showch=true;
     $scope.progrshow2=false;
 	$scope.loadshow2=true;
 	$scope.booktid=idbol;
@@ -420,11 +421,15 @@ if(userid!=0){
 	$http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
 $scope.flag_pro = response.data.reg[0].flag_pro;
 	$scope.factor = response.data.factor;
+	$scope.chapi = response.data.chapi;
 	if($scope.flag_pro==1){$scope.showpay=false;
 	  $scope.showag=false;}
 angular.forEach($scope.factor, function(value, key) {
 		if(value.idb==idbol){$scope.showpay=false;}
- });  
+ });
+ angular.forEach($scope.chapi, function(value, key) {
+		if(value.idbook==idbol){$scope.showch=false;}
+ });   
  });
 }else{
 $scope.showpay=true;	
@@ -556,6 +561,7 @@ $scope.deletefile(path,filename);
 		  $scope.loginon=false;
 		  $scope.showag=false;
 		  $scope.showpay=true;
+		  $scope.showch=true;
 		  $scope.loginoff=true;
 		  $scope.starshow=true;//false*
 		  $scope.commshow=false;
@@ -566,6 +572,7 @@ $scope.deletefile(path,filename);
 /////////////////////////////////////////////////////
 $scope.allgh = function(){ 
 $scope.uid = device.uuid;
+//alert(device.uuid);
 $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
 	$scope.myfaver = response.data.factor;
 });
@@ -591,6 +598,9 @@ $scope.loadStartCallBack = function() {
 	angular.forEach(response.data.factor, function(value, key) {
 		if(value.idb==id_ghes){$scope.showpay=false;}
  });  
+ 	angular.forEach(response.data.chapi, function(value, key) {
+		if(value.idbook==id_ghes){$scope.showch=false;}
+ }); 
 	if(response.data.reg[0].fname==0){}else{
 	$scope.fname = response.data.reg[0].fname;
 	$scope.flag_pro = response.data.reg[0].flag_pro;
