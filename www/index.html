@@ -58,7 +58,7 @@
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
                     <li  ng-show="loginon" ><a onclick="angular.element($('#CenterCTRL')).scope().exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+                    <li  ><a ng-click="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
 				</ul> 
 				<hr class="inset">
 				<ul data-role="listview"   data-inset="false">
@@ -441,7 +441,7 @@
 				<ul data-role="listview"   data-inset="false">
                 <li data-role="list-divider">دسترسی ها</li>
                     <li  ><a href="#one"  data-icon="false"><i class="zmdi zmdi-view-list-alt"></i>  دسته بندی قصه ها</a></li>
-                    <li  ><a onclick="angular.element($('#CenterCTRL')).scope().showfaver()"  data-icon="false"><i class="zmdi zmdi-favorite"></i> قصه های مورد علاقه</a></li>
+                    <li  ><a onClick="document.getElementById('closex6').click()" href="#favert" ng-click="showfaver()"  data-icon="false"><i class="zmdi zmdi-favorite"></i> قصه های مورد علاقه</a></li>
                     <li  ><a  href="#about"  data-icon="false"><i class="zmdi zmdi-info"></i> درباره ما</a></li>
                     <li  ><a onclick="angular.element($('#CenterCTRL')).scope().openb('https://t.me/namiadownload')"   data-icon="false"><i class="zmdi zmdi-mail-send"></i> کانال تلگرام</a></li>
 </ul>

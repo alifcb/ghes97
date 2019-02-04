@@ -423,7 +423,8 @@ $scope.flag_pro = response.data.reg[0].flag_pro;
 	$scope.factor = response.data.factor;
 	$scope.chapi = response.data.chapi;
 	if($scope.flag_pro==1){$scope.showpay=false;
-	  $scope.showag=false;}
+	  $scope.showag=false;
+	  }
 angular.forEach($scope.factor, function(value, key) {
 		if(value.idb==idbol){$scope.showpay=false;}
  });
@@ -431,7 +432,9 @@ angular.forEach($scope.factor, function(value, key) {
 		if(value.idbook==idbol){$scope.showch=false;}
  });   
  });
-}else{
+}else{ $scope.xflag=0;
+	$scope.fflag=1;
+	$scope.factor={}; 
 $scope.showpay=true;	
 }
 if(Onlins==1){
@@ -562,6 +565,8 @@ $scope.deletefile(path,filename);
 		  $scope.showag=false;
 		  $scope.showpay=true;
 		  $scope.showch=true;
+		  $scope.fflag=1; 
+		  $scope.xflag=0; 
 		  $scope.loginoff=true;
 		  $scope.starshow=true;//false*
 		  $scope.commshow=false;
