@@ -494,7 +494,12 @@ location.reload();
 ////////////////////////////////////////////// show slide book
 $scope.showbook = function(idds) {
 	$scope.id_bookf =idds;
-	//$scope.showbook(idds);
+ var userid=document.getElementById('userid').value;
+	 if(userid==0){ 
+	  $scope.xflag=0;
+	$scope.fflag=1;
+	$scope.factor={}; 	
+}
  var oval=document.getElementById("onemus").value;
  	var uids=device.uuid;
 $.mobile.changePage( "#fullslide", { transition: "slideup"} );
