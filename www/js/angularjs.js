@@ -8,7 +8,8 @@ $scope.wopen = function(links) {
 };
 
 $scope.starshow=true; 
-  $scope.showag=true;
+$scope.showag=true;
+$scope.bpay=false;
 //////////////////////////////////////check online
 setTimeout(function(){
 $scope.uid = device.uuid;
@@ -16,6 +17,7 @@ window.resolveLocalFileSystemURL("file:///storage/emulated/0/Android/com.baan.no
 function onSuccesfsl(fileEntry) {
 $http.get("file:///storage/emulated/0/Android/com.baan.no/reg/"+$scope.uid+".json").then(function(response) {
 	var sdatr=response.data.reg[0].time;
+	$scope.bpay=response.data.bpay[0];
 	if(parseInt(sdatr)+86400 < (Date.now()/ 1000)){
 		 //alert(Date.now());
 	  $scope.fflag=1; $scope.xflag=0;
@@ -74,6 +76,7 @@ $scope.loadshow=false;
 	
 	$http.get("file:///storage/emulated/0/Android/com.baan.no/json/one.json").then(function(response) {
 	$scope.genr =	response.data.genrate[0];
+	if(response.data.bpay[0]){$scope.bpay = response.data.bpay[0];}
 	$scope.cats = response.data.cats;
 	$scope.books = response.data.books;
 	$scope.eventsx = response.data.events;
@@ -82,6 +85,7 @@ document.getElementById('slider_flag').value=1;//alert($scope.genr);
  var Onlins=document.getElementById('online').value;
 if(Onlins==1){
 $http.get("http://gheseban.ir/upload/json/one.json").then(function(response) {
+ $scope.bpay = response.data.bpay[0];
  var dx=0;angular.forEach($scope.books, function(value, key) {
 	// console.log(value.update +'  '+response.data.books[dx].update);
  if(value.update!=response.data.books[dx].update){
