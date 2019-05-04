@@ -259,8 +259,8 @@
 <p class="pco" ng-show="showpay"> قصه {{event.name}} شامل {{event.free}} صفحه رایگان است برای استفاده از تمام صفحات قصه را خریداری نمایید.</p>
 <a ng-show="shoply" onClick="ssmx();window.plugins.insomnia.keepAwake()" id="plyfile"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
 <a ng-show="shozip" ng-click="downloadzip(booktid+'.zip',booktid);" id="loaderzip" class="ui-btn ui-btn-raised clr-bg-green">دانلود فایل قصه</a>
-<a ng-show="showpay"  ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singup}}</a>
-<a ng-show="showch" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singin}}</a><br/>
+<a ng-show="showpay" ng-hide="bpay"  ng-click="inappb('http://gheseban.ir/login/login/'+event.id+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singup}}</a>
+<a ng-show="showch" ng-hide="bpay" ng-click="inappb('http://gheseban.ir/login/reg/'+event.id_book+'/'+userid,1)" class="ui-btn ui-btn-raised clr-primary">{{singin}}</a><br/>
 </div>
 </div>
 
