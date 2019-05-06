@@ -54,11 +54,11 @@
 				</div>
 				<ul data-role="listview"   data-inset="false">
 					<li data-role="list-divider">پروفایل</li>
-                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ng-hide="bpay" ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
                     <li  ng-show="loginon" ><a onclick="angular.element($('#CenterCTRL')).scope().exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
-                    <li  ng-show="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+                    <li  ng-hide="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
 				</ul> 
 				<hr class="inset">
 				<ul data-role="listview"   data-inset="false">
@@ -100,7 +100,7 @@
 </div>
 </a>
 </div></div>
- <div  ng-show="bpay" class="col-xs-12">
+ <div  ng-hide="bpay" class="col-xs-12">
 <div  class="nd2-card">
 <a  ng-click="inappb('http://gheseban.ir/pack/'+uid, 3)">
 <div class="card-media" >
@@ -136,11 +136,11 @@
 				</div>
 				<ul data-role="listview"   data-inset="false">
 					<li data-role="list-divider">پروفایل</li>
-                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ng-hide="bpay" ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
                     <li  ng-show="loginon" ><a onclick="angular.element($('#CenterCTRL')).scope().exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
-                    <li  ng-show="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+                    <li  ng-hide="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
 				</ul> 
 				<hr class="inset">
 				<ul data-role="listview"   data-inset="false">
@@ -208,11 +208,11 @@
 				</div>
 				<ul data-role="listview"   data-inset="false">
 					<li data-role="list-divider">پروفایل</li>
-                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ng-hide="bpay"><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
                     <li ng-show="loginoff" ><a ng-click="scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
                     <li ng-show="loginoff" ><a ng-click="inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
                     <li  ng-show="loginon" ><a ng-click="exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
-                    <li  ng-show="bpay" ><a ng-click="inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+                    <li  ng-hide="bpay" ><a ng-click="inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
 				</ul> 
 				<hr class="inset">
 				<ul data-role="listview"   data-inset="false">
@@ -253,9 +253,9 @@
 <div class="card-title has-supporting-text">
 <h5 class="card-subtitle flarg clr-purple">{{event.name}}</h5><hr/>
 <h5 class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i>تعداد صفحات: {{event.pages}}</h5>
-<h5  ng-show="bpay" class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i>تعداد صفحات رایگان: {{event.free}}</h5>
-<h5  ng-show="bpay" class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت قصه آنلاین: {{event.price}} تومان</h5>
-<h5  ng-show="bpay" class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت کتاب چاپی: {{event.priceb}} تومان</h5>
+<h5  ng-hide="bpay" class="card-subtitle fmedium"><i class="zmdi zmdi-book zmd-lg"></i>تعداد صفحات رایگان: {{event.free}}</h5>
+<h5  ng-hide="bpay" class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت قصه آنلاین: {{event.price}} تومان</h5>
+<h5  ng-hide="bpay" class="card-subtitle fmedium" ng-init="showprice(event.price)"><i class="zmdi zmdi-money zmd-2x"></i> قیمت کتاب چاپی: {{event.priceb}} تومان</h5>
 <p class="pco" ng-show="showpay"> قصه {{event.name}} شامل {{event.free}} صفحه رایگان است برای استفاده از تمام صفحات قصه را خریداری نمایید.</p>
 <a ng-show="shoply" onClick="ssmx();window.plugins.insomnia.keepAwake()" id="plyfile"  ng-click="showbook(booktid);" class="ui-btn ui-btn-raised clr-bg-green">پخش قصه</a>
 <a ng-show="shozip" ng-click="downloadzip(booktid+'.zip',booktid);" id="loaderzip" class="ui-btn ui-btn-raised clr-bg-green">دانلود فایل قصه</a>
@@ -365,11 +365,11 @@
 				</div>
 				<ul data-role="listview"   data-inset="false">
 					<li data-role="list-divider">پروفایل</li>
-                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li ng-hide="bpay" ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
                     <li  ng-show="loginon" ><a onclick="angular.element($('#CenterCTRL')).scope().exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
-                    <li  ng-show="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+                    <li  ng-hide="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
 				</ul> 
 				<hr class="inset">
 				<ul data-role="listview"   data-inset="false">
@@ -431,11 +431,11 @@
 				</div>
 				<ul data-role="listview"   data-inset="false">
 					<li data-role="list-divider">پروفایل</li>
-                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li  ng-hide="bpay" ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
                     <li  ng-show="loginon" ><a onclick="angular.element($('#CenterCTRL')).scope().exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
-                    <li  ng-show="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+                    <li  ng-hide="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
 				</ul> 
 				<hr class="inset">
 				<ul data-role="listview"   data-inset="false">
@@ -499,11 +499,11 @@
 				</div>
 				<ul data-role="listview"   data-inset="false">
 					<li data-role="list-divider">پروفایل</li>
-                    <li  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
+                    <li ng-hide="bpay"  ><a href="#profile" data-icon="false"><i class="zmdi zmdi-account-box"></i>  پروفایل کاربری</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/login/0/'+device.uuid,1)"   data-icon="false"><i class="zmdi zmdi-lock-open"></i> ورود</a></li>
                     <li ng-show="loginoff" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/login/reg/0/'+device.uuid,2)"   data-icon="false"><i class="zmdi zmdi-account-add"></i> عضویت </a></li>
                     <li  ng-show="loginon" ><a onclick="angular.element($('#CenterCTRL')).scope().exits()"   data-icon="false"><i class="zmdi zmdi-close"></i> خروج </a></li>
-                    <li  ng-show="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
+                    <li  ng-hide="bpay" ><a onclick="angular.element($('#CenterCTRL')).scope().inappb('http://gheseban.ir/pack/'+device.uuid, 3)"   data-icon="false"><i class="zmdi zmdi-money"></i> خرید طرح های ماهانه</a></li>
 				</ul> 
 				<hr class="inset">
 				<ul data-role="listview"   data-inset="false">
