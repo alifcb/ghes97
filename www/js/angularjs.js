@@ -10,6 +10,7 @@ $scope.wopen = function(links) {
 $scope.starshow=true; 
 $scope.showag=true;
 $scope.bpay=false;
+
 //////////////////////////////////////check online
 setTimeout(function(){
 $scope.uid = device.uuid;
@@ -406,9 +407,9 @@ document.getElementById('id_ghes').value=idbol;
 	}
 });
 	$scope.showpay=true;
-	$scope.showpay=$scope.bpay;
+	if($scope.bpay==true){$scope.showpay=false;}
 	$scope.showch=true;
-	$scope.showch=$scope.bpay;
+	if($scope.bpay==true){$scope.showch=false;}
     $scope.progrshow2=false;
 	$scope.loadshow2=true;
 	$scope.booktid=idbol;
@@ -442,7 +443,7 @@ angular.forEach($scope.factor, function(value, key) {
 	$scope.fflag=1;
 	$scope.factor={}; 
 $scope.showpay=true;	
-$scope.showpay=$scope.bpay;
+if($scope.bpay==true){$scope.showpay=false;}
 }
 if(Onlins==1){
 	if(userid!=0){
@@ -576,9 +577,9 @@ $scope.deletefile(path,filename);
 		  $scope.loginon=false;
 		  $scope.showag=false;
 		  $scope.showpay=true;
-		  $scope.showpay=$scope.bpay;
+		  if($scope.bpay==true){$scope.showpay=false;}
 		  $scope.showch=true;
-		  $scope.showch=$scope.bpay;
+		  if($scope.bpay==true){$scope.showch=false;}
 		  $scope.fflag=1; 
 		  $scope.xflag=0; 
 		  $scope.loginoff=true;
