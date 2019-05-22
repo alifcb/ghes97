@@ -406,7 +406,9 @@ document.getElementById('id_ghes').value=idbol;
 	}
 });
 	$scope.showpay=true;
+	$scope.showpay=$scope.bpay;
 	$scope.showch=true;
+	$scope.showch=$scope.bpay;
     $scope.progrshow2=false;
 	$scope.loadshow2=true;
 	$scope.booktid=idbol;
@@ -440,6 +442,7 @@ angular.forEach($scope.factor, function(value, key) {
 	$scope.fflag=1;
 	$scope.factor={}; 
 $scope.showpay=true;	
+$scope.showpay=$scope.bpay;
 }
 if(Onlins==1){
 	if(userid!=0){
@@ -573,7 +576,9 @@ $scope.deletefile(path,filename);
 		  $scope.loginon=false;
 		  $scope.showag=false;
 		  $scope.showpay=true;
+		  $scope.showpay=$scope.bpay;
 		  $scope.showch=true;
+		  $scope.showch=$scope.bpay;
 		  $scope.fflag=1; 
 		  $scope.xflag=0; 
 		  $scope.loginoff=true;
